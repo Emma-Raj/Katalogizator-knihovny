@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { flushSync } from 'react-dom'
 import { Html5Qrcode } from 'html5-qrcode'
 import { Camera, Search, Sparkles, AlertCircle, CheckCircle2 } from 'lucide-react'
 
@@ -22,7 +23,9 @@ export default function Scanner({ onScanSuccess, books = [] }) {
   const startCamera = async () => {
     setErrorMessage('')
     setScannedResult(null)
-    setScanning(true)
+    flushSync(() => {
+      setScanning(true)
+    })
 
     try {
       const html5Qrcode = new Html5Qrcode('reader')
@@ -45,7 +48,13 @@ export default function Scanner({ onScanSuccess, books = [] }) {
     } catch (err) {
       console.error(err)
       setScanning(false)
-      setErrorMessage('Kamera nebyla nalezena nebo nemáte povolený přístup. Můžete zadat čárkový kód ručně níže.')
+      if (err?.name === 'NotAllowedError') {
+        setErrorMessage('Přístup k fotoaparátu byl zamítnut. Povolte přístup v nastavení prohlížeče.')
+      } else if (err?.name === 'NotFoundError') {
+        setErrorMessage('Zařízení nemá fotoaparát nebo nebyla nalezena žádná kamera.')
+      } else {
+        setErrorMessage('Při spouštění fotoaparátu došlo k chybě. Můžete zadat čárkový kód ručně níže.')
+      }
     }
   }
 
