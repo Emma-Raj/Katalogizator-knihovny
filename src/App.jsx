@@ -131,7 +131,7 @@ export default function App() {
           )}
 
           {activeTab === 'scan' && (
-            <Scanner onScanSuccess={handleScanSuccess} books={books} />
+            <Scanner onScanSuccess={handleScanSuccess} books={books} onAddBook={handleAddBook} />
           )}
 
           {activeTab === 'borrowed' && (

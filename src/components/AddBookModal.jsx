@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
-import { PlusCircle, Barcode, MapPin, GraduationCap, CheckCircle2 } from 'lucide-react'
+import { PlusCircle, Barcode, MapPin, GraduationCap, CheckCircle2, Search, Loader2, AlertCircle, Sparkles, Library } from 'lucide-react'
+import { searchBookByIsbn } from '../services/knihovnyApi'
 
-export default function AddBookModal({ onAddBook }) {
+export default function AddBookModal({ onAddBook, initialIsbn = '' }) {
+  const [isbnQuery, setIsbnQuery] = useState(initialIsbn)
+  const [isSearching, setIsSearching] = useState(false)
+  const [isbnError, setIsbnError] = useState('')
+  const [isbnSuccess, setIsbnSuccess] = useState('')
+
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [genre, setGenre] = useState('Román')
@@ -22,6 +28,44 @@ export default function AddBookModal({ onAddBook }) {
 
   const generateRandomBarcode = () => {
     setBarcode(`859${Math.floor(100000000 + Math.random() * 900000000)}`)
+  }
+
+  const handleIsbnSearch = async (e) => {
+    if (e) e.preventDefault()
+    if (!isbnQuery.trim()) {
+      setIsbnError('Zadejte číslo ISBN k vyhledání.')
+      return
+    }
+
+    setIsSearching(true)
+    setIsbnError('')
+    setIsbnSuccess('')
+
+    const result = await searchBookByIsbn(isbnQuery.trim())
+
+    setIsSearching(false)
+
+    if (result.success && result.book) {
+      const b = result.book
+      setTitle(b.title || '')
+      setAuthor(b.author || '')
+      setBarcode(b.isbn || barcode)
+
+      let autoDesc = ''
+      if (b.publisher) autoDesc += `Nakladatel: ${b.publisher}`
+      if (b.publicationYear) autoDesc += autoDesc ? `, rok ${b.publicationYear}` : `Rok vydání: ${b.publicationYear}`
+      if (b.physicalDescription) autoDesc += autoDesc ? `. ${b.physicalDescription}` : b.physicalDescription
+
+      if (autoDesc) {
+        setDescription(autoDesc)
+      } else {
+        setDescription(`Výtisk z Národní knihovny / Knihovny.cz (${b.isbn}).`)
+      }
+
+      setIsbnSuccess(`Kniha "${b.title}" nalezena v katalogu Knihovny.cz! Údaje byly doplněny do formuláře.`)
+    } else {
+      setIsbnError(result.error || 'Knihu se nepodařilo v katalogu Knihovny.cz najít.')
+    }
   }
 
   const handleSubmit = (e) => {
@@ -53,6 +97,9 @@ export default function AddBookModal({ onAddBook }) {
     setTitle('')
     setAuthor('')
     setDescription('')
+    setIsbnQuery('')
+    setIsbnSuccess('')
+    setIsbnError('')
     generateRandomBarcode()
     setTimeout(() => setSuccessMsg(''), 4000)
   }
@@ -79,7 +126,77 @@ export default function AddBookModal({ onAddBook }) {
         </div>
       )}
 
-      {/* Form */}
+      {/* Knihovny.cz ISBN Lookup Banner */}
+      <div className="bg-white rounded-2xl p-4 shadow-sm border border-emerald-200 space-y-3">
+        <div className="flex items-center gap-2 text-emerald-800 font-semibold text-xs">
+          <Library className="w-4 h-4 text-emerald-600" />
+          <span>Automatické načtení z českého katalogu Knihovny.cz</span>
+        </div>
+
+        <form onSubmit={handleIsbnSearch} className="flex gap-2">
+          <input
+            type="text"
+            placeholder="Zadejte ISBN (např. 9788025703670)"
+            value={isbnQuery}
+            onChange={(e) => {
+              setIsbnQuery(e.target.value)
+              setIsbnError('')
+              setIsbnSuccess('')
+            }}
+            className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
+          />
+          <button
+            type="submit"
+            disabled={isSearching}
+            className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 text-white font-semibold px-3 py-2 rounded-xl text-xs transition-all flex items-center gap-1.5 shrink-0"
+          >
+            {isSearching ? (
+              <>
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                <span>Hledám...</span>
+              </>
+            ) : (
+              <>
+                <Search className="w-3.5 h-3.5" />
+                <span>Načíst</span>
+              </>
+            )}
+          </button>
+        </form>
+
+        {/* Test sample ISBN prompt button */}
+        <div className="flex items-center gap-1.5 text-[11px] text-slate-500 bg-slate-50 p-2 rounded-xl border border-slate-200">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+          <span>Ukázkové ISBN:</span>
+          <button
+            type="button"
+            onClick={() => {
+              setIsbnQuery('9788025703670')
+              setIsbnError('')
+              setIsbnSuccess('')
+            }}
+            className="font-mono text-emerald-700 underline font-semibold hover:text-emerald-900"
+          >
+            9788025703670
+          </button>
+        </div>
+
+        {isbnSuccess && (
+          <div className="p-2.5 bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs rounded-xl flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+            <span>{isbnSuccess}</span>
+          </div>
+        )}
+
+        {isbnError && (
+          <div className="p-2.5 bg-amber-50 border border-amber-200 text-amber-900 text-xs rounded-xl flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <span>{isbnError}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Manual Input Form */}
       <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 space-y-3">
         <div>
           <label className="block text-xs font-bold text-slate-700 mb-1">Název knihy *</label>
@@ -170,7 +287,7 @@ export default function AddBookModal({ onAddBook }) {
         <div>
           <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1">
             <Barcode className="w-3.5 h-3.5 text-slate-600" />
-            <span>Čárkový kód *</span>
+            <span>Čárkový kód / ISBN *</span>
           </label>
           <div className="flex gap-2">
             <input
