@@ -11,6 +11,7 @@ import { initialBooks } from './data/books'
 import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
 const LOCAL_STORAGE_KEY = 'skolni_knihovna_books_v1'
+const SCAN_HISTORY_KEY = 'skolni_knihovna_scan_history_v1'
 
 export default function App() {
   const [books, setBooks] = useState(() => {
@@ -23,6 +24,18 @@ export default function App() {
       console.error('Chyba při načítání LocalStorage:', e)
     }
     return initialBooks
+  })
+
+  const [scanHistory, setScanHistory] = useState(() => {
+    try {
+      const savedHistory = localStorage.getItem(SCAN_HISTORY_KEY)
+      if (savedHistory) {
+        return JSON.parse(savedHistory)
+      }
+    } catch (e) {
+      console.error('Chyba při načítání historie skenování:', e)
+    }
+    return []
   })
 
   const [activeTab, setActiveTab] = useState('catalog')
@@ -38,23 +51,58 @@ export default function App() {
     }
   }, [books])
 
+  // Sync scan history with LocalStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(SCAN_HISTORY_KEY, JSON.stringify(scanHistory))
+    } catch (e) {
+      console.error('Chyba při ukládání historie skenování:', e)
+    }
+  }, [scanHistory])
+
   const showToast = (message, type = 'success') => {
     setToastMessage({ message, type })
     setTimeout(() => setToastMessage(null), 4000)
   }
 
-  // Handle scanned barcode
-  const handleScanSuccess = (barcode) => {
-    const matchedBook = books.find(
-      (b) => b.barcode.trim() === barcode.trim()
-    )
-
-    if (matchedBook) {
-      setSelectedBook(matchedBook)
-      showToast(`Kniha nalezena: "${matchedBook.title}"`, 'success')
-    } else {
-      showToast(`Kniha s čárkovým kódem "${barcode}" nebyla v databázi nalezena.`, 'error')
+  // Handle scanned/recognized book cover
+  const handleScanSuccess = (matchedBook, photoPreview = null) => {
+    if (!matchedBook) {
+      showToast('Kniha nebyla rozpoznána. Zkuste vyfotit obálku znova.', 'error')
+      return
     }
+
+    const newHistoryItem = {
+      id: 'scan-' + Date.now(),
+      bookId: matchedBook.id,
+      title: matchedBook.title,
+      author: matchedBook.author,
+      genre: matchedBook.genre,
+      location: matchedBook.location,
+      scannedAt: new Date().toLocaleString('cs-CZ', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      photoPreview: photoPreview || null,
+      book: matchedBook
+    }
+
+    setScanHistory((prev) => [newHistoryItem, ...prev])
+    setSelectedBook(matchedBook)
+    showToast(`Kniha rozpoznána: "${matchedBook.title}"`, 'success')
+  }
+
+  const handleClearScanHistory = () => {
+    setScanHistory([])
+    showToast('Historie skenování byla vymazána.', 'success')
+  }
+
+  const handleRemoveHistoryItem = (historyId) => {
+    setScanHistory((prev) => prev.filter((item) => item.id !== historyId))
+    showToast('Položka byla odebrána z historie.', 'success')
   }
 
   // Handle Borrow
@@ -131,7 +179,14 @@ export default function App() {
           )}
 
           {activeTab === 'scan' && (
-            <Scanner onScanSuccess={handleScanSuccess} books={books} />
+            <Scanner
+              onScanSuccess={handleScanSuccess}
+              books={books}
+              scanHistory={scanHistory}
+              onClearHistory={handleClearScanHistory}
+              onRemoveHistoryItem={handleRemoveHistoryItem}
+              onSelectBook={(b) => setSelectedBook(b)}
+            />
           )}
 
           {activeTab === 'borrowed' && (
