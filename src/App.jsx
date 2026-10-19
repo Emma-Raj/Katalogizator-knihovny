@@ -90,6 +90,29 @@ export default function App() {
     showToast(`Kniha "${newBook.title}" byla přidána do databáze!`, 'success')
   }
 
+  // Handle Add External Book from Knihovny.cz
+  const handleAddExternalBook = (extBook) => {
+    const newBook = {
+      id: `book-custom-${Date.now()}`,
+      title: extBook.title,
+      author: extBook.author,
+      genre: 'Beletrie',
+      category: 'ceska_20_21',
+      categoryName: 'Česká literatura 20. a 21. století',
+      isMaturita: false,
+      barcode: extBook.isbn || extBook.barcode,
+      location: 'Sekce D – Nové přírůstky',
+      description: `Školní výtisk díla ${extBook.title} od autora ${extBook.author} (rok vydání ${extBook.year || 'neuvedeno'}). Načteno z databáze Knihovny.cz.`,
+      isBorrowed: false,
+      borrowedTo: '',
+      borrowedDate: '',
+    }
+
+    setBooks((prev) => [newBook, ...prev])
+    setSelectedBook(newBook)
+    showToast(`Kniha "${newBook.title}" byla z Knihovny.cz přidána do katalogu!`, 'success')
+  }
+
   const borrowedCount = books.filter((b) => b.isBorrowed).length
 
   return (
@@ -131,7 +154,11 @@ export default function App() {
           )}
 
           {activeTab === 'scan' && (
-            <Scanner onScanSuccess={handleScanSuccess} books={books} />
+            <Scanner
+              onScanSuccess={handleScanSuccess}
+              books={books}
+              onAddExternalBook={handleAddExternalBook}
+            />
           )}
 
           {activeTab === 'borrowed' && (
