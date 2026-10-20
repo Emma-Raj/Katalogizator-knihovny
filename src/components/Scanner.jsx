@@ -44,7 +44,6 @@ export default function Scanner({
   const [importedMessage, setImportedMessage] = useState('')
 
   const html5QrcodeRef = useRef(null)
-  const fileInputRef = useRef(null)
 
   // Clean up scanner on unmount or tab switch
   useEffect(() => {
@@ -73,8 +72,24 @@ export default function Scanner({
     setApiResult(null)
     setLastRecognizedBook(null)
 
+    // First make sure the container element <div id="qr-reader" /> is mounted in DOM
+    setCameraActive(true)
+
+    // Wait 100ms for React DOM to render <div id="qr-reader" />
+    await new Promise((res) => setTimeout(res, 100))
+
     try {
-      await stopCameraScanner()
+      if (html5QrcodeRef.current) {
+        await stopCameraScanner()
+        setCameraActive(true)
+        await new Promise((res) => setTimeout(res, 100))
+      }
+
+      const qrElement = document.getElementById('qr-reader')
+      if (!qrElement) {
+        throw new Error('Element pro skener kódů se neporadilo načíst v DOM.')
+      }
+
       const html5Qrcode = new Html5Qrcode('qr-reader')
       html5QrcodeRef.current = html5Qrcode
 
@@ -84,27 +99,83 @@ export default function Scanner({
         aspectRatio: 1.333
       }
 
-      await html5Qrcode.start(
-        { facingMode: 'environment' },
-        config,
-        async (decodedText) => {
-          // Barcode / EAN / ISBN successfully read
-          await stopCameraScanner()
-          handleQuerySearch(decodedText, 'ISN')
-        },
-        () => {
-          // Ignore individual frame errors
-        }
-      )
+      const onScanSuccessCallback = async (decodedText) => {
+        await stopCameraScanner()
+        handleQuerySearch(decodedText, 'ISN')
+      }
 
-      setCameraActive(true)
+      // Multi-tier camera fallback strategy
+      let cameraStarted = false
+
+      // Tier 1: Try getCameras() to select back camera or first available camera
+      try {
+        const cameras = await Html5Qrcode.getCameras()
+        if (cameras && cameras.length > 0) {
+          // Look for back camera
+          const backCamera = cameras.find(
+            (c) =>
+              c.label.toLowerCase().includes('back') ||
+              c.label.toLowerCase().includes('rear') ||
+              c.label.toLowerCase().includes('zadní') ||
+              c.label.toLowerCase().includes('prostranství')
+          )
+          const selectedCamId = backCamera ? backCamera.id : cameras[0].id
+
+          await html5Qrcode.start(selectedCamId, config, onScanSuccessCallback, () => {})
+          cameraStarted = true
+        }
+      } catch (camErr) {
+        console.warn('getCameras selhalo, zkouším direct facingMode:', camErr)
+      }
+
+      // Tier 2: Try facingMode environment (back camera)
+      if (!cameraStarted) {
+        try {
+          await html5Qrcode.start(
+            { facingMode: 'environment' },
+            config,
+            onScanSuccessCallback,
+            () => {}
+          )
+          cameraStarted = true
+        } catch (envErr) {
+          console.warn('facingMode environment selhalo:', envErr)
+        }
+      }
+
+      // Tier 3: Fallback to facingMode user (front camera / default)
+      if (!cameraStarted) {
+        try {
+          await html5Qrcode.start(
+            { facingMode: 'user' },
+            config,
+            onScanSuccessCallback,
+            () => {}
+          )
+          cameraStarted = true
+        } catch (userErr) {
+          console.warn('facingMode user selhalo:', userErr)
+        }
+      }
+
+      if (!cameraStarted) {
+        throw new Error('Zařízení neposkytlo žádný dostupný video stream fotoaparátu.')
+      }
     } catch (err) {
       console.error('Spuštění fotoaparátu selhalo:', err)
-      setCameraActive(false)
-      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-        setErrorMessage('Přístup k fotoaparátu byl zamítnut. Povolte fotoaparát v prohlížeči nebo zadejte kód ručně.')
+      await stopCameraScanner()
+      if (
+        err.name === 'NotAllowedError' ||
+        err.name === 'PermissionDeniedError' ||
+        (err.message && err.message.toLowerCase().includes('permission'))
+      ) {
+        setErrorMessage(
+          'Přístup k fotoaparátu byl zamítnut. Povolte fotoaparát v nastavení prohlížeče nebo zadejte kód ručně níže.'
+        )
       } else {
-        setErrorMessage('Fotoaparát se nepodařilo spustit. Můžete vyhledat knihu ručně níže.')
+        setErrorMessage(
+          'Fotoaparát se nepodařilo spustit (nebylo nalezeno kompatibilní video zařízení nebo přístup). Můžete knihu vyhledat ručně níže.'
+        )
       }
     }
   }
