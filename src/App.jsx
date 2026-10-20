@@ -186,6 +186,7 @@ export default function App() {
               onClearHistory={handleClearScanHistory}
               onRemoveHistoryItem={handleRemoveHistoryItem}
               onSelectBook={(b) => setSelectedBook(b)}
+              onAddBook={handleAddBook}
             />
           )}
 
