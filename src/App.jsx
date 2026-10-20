@@ -10,7 +10,7 @@ import BookDetailModal from './components/BookDetailModal'
 import { initialBooks } from './data/books'
 import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
-const LOCAL_STORAGE_KEY = 'skolni_knihovna_books_v1'
+const LOCAL_STORAGE_KEY = 'skolni_knihovna_books_v2'
 const SCAN_HISTORY_KEY = 'skolni_knihovna_scan_history_v1'
 
 export default function App() {
