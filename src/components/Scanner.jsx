@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { flushSync } from 'react-dom'
-import { Html5Qrcode } from 'html5-qrcode'
-import { Camera, Search, Sparkles, AlertCircle, Library, Loader2, Plus, CheckCircle2 } from 'lucide-react'
+import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode'
+import { Camera, Search, Sparkles, AlertCircle, Library, Loader2, Plus, CheckCircle2, Upload, Image as ImageIcon } from 'lucide-react'
 import { searchBookByIsbn, normalizeIsbnTo13 } from '../services/knihovnyApi'
 
 export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
@@ -10,6 +10,10 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
   const [errorMessage, setErrorMessage] = useState('')
   const [scannedResult, setScannedResult] = useState(null)
 
+  // File upload scan state
+  const [isScanningFile, setIsScanningFile] = useState(false)
+  const [fileScanError, setFileScanError] = useState('')
+
   // Online Knihovny.cz search state
   const [onlineSearchResult, setOnlineSearchResult] = useState(null)
   const [isSearchingOnline, setIsSearchingOnline] = useState(false)
@@ -17,6 +21,7 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
   const [addSuccessMsg, setAddSuccessMsg] = useState('')
 
   const html5QrcodeRef = useRef(null)
+  const fileInputRef = useRef(null)
   const sampleBooks = books.slice(0, 5)
 
   useEffect(() => {
@@ -27,42 +32,58 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
     }
   }, [])
 
+  const getScannerConfig = () => {
+    const formatsToSupport = [
+      Html5QrcodeSupportedFormats.EAN_13,
+      Html5QrcodeSupportedFormats.EAN_8,
+      Html5QrcodeSupportedFormats.CODE_128,
+      Html5QrcodeSupportedFormats.CODE_39,
+      Html5QrcodeSupportedFormats.UPC_A,
+      Html5QrcodeSupportedFormats.UPC_E,
+      Html5QrcodeSupportedFormats.QR_CODE
+    ]
+    return { formatsToSupport, verbose: false }
+  }
+
   const startCamera = async () => {
     setErrorMessage('')
     setScannedResult(null)
     setOnlineSearchResult(null)
     setOnlineError('')
+    setFileScanError('')
+
     flushSync(() => {
       setScanning(true)
     })
 
     try {
-      const html5Qrcode = new Html5Qrcode('reader')
+      const html5Qrcode = new Html5Qrcode('reader', getScannerConfig())
       html5QrcodeRef.current = html5Qrcode
 
       await html5Qrcode.start(
         { facingMode: 'environment' },
         {
-          fps: 10,
-          qrbox: { width: 250, height: 180 },
+          fps: 15,
+          qrbox: { width: 280, height: 160 },
+          aspectRatio: 1.333333
         },
         (decodedText) => {
           handleFoundCode(decodedText)
           stopCamera()
         },
         () => {
-          // parse errors are normal while scanning frame by frame
+          // parse errors during scanning frames
         }
       )
     } catch (err) {
-      console.error(err)
+      console.error('Camera error:', err)
       setScanning(false)
       if (err?.name === 'NotAllowedError') {
-        setErrorMessage('Přístup k fotoaparátu byl zamítnut. Povolte přístup v nastavení prohlížeče.')
+        setErrorMessage('Přístup k fotoaparátu byl zamítnut. Povolte přístup k fotaparátu v nastavení prohlížeče.')
       } else if (err?.name === 'NotFoundError') {
-        setErrorMessage('Zařízení nemá fotoaparát nebo nebyla nalezena žádná kamera.')
+        setErrorMessage('Zařízení nemá kameru nebo nebyla nalezena žádná dostupná kamera.')
       } else {
-        setErrorMessage('Při spouštění fotoaparátu došlo k chybě. Můžete zadat čárkový kód ručně níže.')
+        setErrorMessage('Při spouštění fotoaparátu došlo k chybě. Můžete nahrát fotku kódu ze souboru nebo zadat kód ručně.')
       }
     }
   }
@@ -72,15 +93,47 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
       try {
         await html5QrcodeRef.current.stop()
       } catch (err) {
-        console.error(err)
+        console.error('Stop camera error:', err)
       }
     }
     setScanning(false)
   }
 
+  const handleFileUpload = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setIsScanningFile(true)
+    setFileScanError('')
+    setErrorMessage('')
+    setScannedResult(null)
+    setOnlineSearchResult(null)
+
+    try {
+      const html5Qrcode = new Html5Qrcode('file-scanner-temp', getScannerConfig())
+      const decodedText = await html5Qrcode.scanFile(file, true)
+      setIsScanningFile(false)
+
+      if (decodedText) {
+        handleFoundCode(decodedText)
+      } else {
+        setFileScanError('Na fotce nebyl rozpoznán čárkový kód / EAN. Zkuste nahraný obrázek lépe oříznout nebo pořídit ostřejší fotku.')
+      }
+    } catch (err) {
+      console.error('File scan error:', err)
+      setIsScanningFile(false)
+      setFileScanError('Na vybraném obrázku se nepodařilo přečíst čárkový kód (EAN/ISBN). Ujistěte se, že je čárkový kód na fotce jasně viditelný.')
+    } finally {
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
+  }
+
   const handleFoundCode = (code) => {
     const trimmed = code.trim()
     setScannedResult(trimmed)
+    setManualCode(trimmed)
     setOnlineSearchResult(null)
     setOnlineError('')
 
@@ -92,8 +145,8 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
     if (matchedBook) {
       onScanSuccess(trimmed)
     } else {
-      // Ak nie je v lokálnej databáze, zavoláme onScanSuccess (zobrazí toast)
-      // a automaticky alebo na kliknutie ponúkneme vyhľadanie v Knihovny.cz
+      // Ak nie je v lokálnej databáze, zavoláme onScanSuccess
+      // a automaticky vyhľadáme v českom katalogu Knihovny.cz
       onScanSuccess(trimmed)
       handleOnlineSearch(trimmed)
     }
@@ -143,7 +196,7 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
     }
 
     onAddBook(newBook)
-    setAddSuccessMsg(`Kniha "${b.title}" byla uložena do vaší databáze!`)
+    setAddSuccessMsg(`Kniha "${b.title}" byla uložena do školní databáze!`)
     setOnlineSearchResult(null)
     setTimeout(() => setAddSuccessMsg(''), 4000)
   }
@@ -157,6 +210,9 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
 
   return (
     <div className="p-4 space-y-5 max-w-md mx-auto pb-24">
+      {/* Hidden container for file scanning */}
+      <div id="file-scanner-temp" className="hidden"></div>
+
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-4 shadow-md">
         <div className="flex items-center gap-3">
@@ -164,9 +220,9 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
             <Camera className="w-6 h-6 text-amber-300" />
           </div>
           <div>
-            <h2 className="font-bold text-lg">Skenování & ISBN Hledání</h2>
+            <h2 className="font-bold text-lg">Čtečka čárkových kódů & ISBN</h2>
             <p className="text-xs text-emerald-100">
-              Naskenujte kód nebo vyhledejte v české databázi Knihovny.cz.
+              Skener fotoaparátu nebo načtení z obrázku s prohledáním Knihovny.cz.
             </p>
           </div>
         </div>
@@ -180,31 +236,62 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
         </div>
       )}
 
-      {/* Camera View Area */}
-      <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 text-center">
+      {/* Camera View & Image Upload Scanner Card */}
+      <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 text-center space-y-4">
         {!scanning ? (
-          <div className="py-6 flex flex-col items-center">
-            <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3">
+          <div className="py-4 flex flex-col items-center space-y-3">
+            <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
               <Camera className="w-8 h-8" />
             </div>
-            <h3 className="font-semibold text-slate-800">Spustit skener fotoaparátu</h3>
-            <p className="text-xs text-slate-500 mb-4 max-w-xs">
-              Povolte přístup k fotoaparátu pro automatické načtení čárkového kódu / ISBN.
-            </p>
-            <button
-              onClick={startCamera}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow transition-all active:scale-95 flex items-center gap-2"
-            >
-              <Camera className="w-5 h-5" />
-              <span>Aktivovat kameru</span>
-            </button>
+            <div>
+              <h3 className="font-semibold text-slate-800 text-sm">Spustit kamerový skener</h3>
+              <p className="text-xs text-slate-500 max-w-xs mt-1">
+                Naskenujte čárkový kód (EAN / ISBN) v reálném čase pomocí fotoaparátu.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2.5 w-full pt-1">
+              <button
+                onClick={startCamera}
+                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow transition-all active:scale-95 flex items-center justify-center gap-2 text-xs"
+              >
+                <Camera className="w-4 h-4" />
+                <span>Aktivovat kameru</span>
+              </button>
+
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isScanningFile}
+                className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs"
+              >
+                {isScanningFile ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-emerald-600" />
+                    <span>Čtu obrázek...</span>
+                  </>
+                ) : (
+                  <>
+                    <ImageIcon className="w-4 h-4 text-slate-600" />
+                    <span>Nahrát fotku kódu</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileUpload}
+              className="hidden"
+            />
           </div>
         ) : (
           <div className="space-y-3">
-            <div id="reader" className="w-full rounded-lg overflow-hidden bg-black min-h-[250px]"></div>
+            <div id="reader" className="w-full rounded-xl overflow-hidden bg-slate-950 min-h-[250px] border border-slate-800"></div>
             <button
               onClick={stopCamera}
-              className="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-4 py-2 rounded-xl text-sm transition-all"
+              className="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs transition-all"
             >
               Zastavit kameru
             </button>
@@ -212,9 +299,16 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
         )}
 
         {errorMessage && (
-          <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-2 text-left">
-            <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <p className="text-xs text-amber-800">{errorMessage}</p>
+          <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-2 text-left">
+            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-900">{errorMessage}</p>
+          </div>
+        )}
+
+        {fileScanError && (
+          <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-2 text-left">
+            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-900">{fileScanError}</p>
           </div>
         )}
       </div>
@@ -231,11 +325,11 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
             placeholder="Napr. 9788025703670 nebo 859..."
             value={manualCode}
             onChange={(e) => setManualCode(e.target.value)}
-            className="flex-1 px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
+            className="flex-1 px-3 py-2.5 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono"
           />
           <button
             type="submit"
-            className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-all"
+            className="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-4 py-2.5 rounded-xl text-xs transition-all"
           >
             Hledat
           </button>
@@ -262,6 +356,16 @@ export default function Scanner({ onScanSuccess, books = [], onAddBook }) {
           </button>
         </div>
       </div>
+
+      {/* Scanned code display */}
+      {scannedResult && (
+        <div className="p-3 bg-slate-100 rounded-2xl border border-slate-200 flex items-center justify-between text-xs">
+          <span className="text-slate-600 font-medium">Naskenovaný kód:</span>
+          <span className="font-mono font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-300">
+            {scannedResult}
+          </span>
+        </div>
+      )}
 
       {/* Online Knihovny.cz Search Result Preview Card */}
       {onlineSearchResult && (
