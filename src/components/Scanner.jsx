@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { flushSync } from 'react-dom'
 import {
   Camera,
   Upload,
@@ -74,7 +75,21 @@ export default function Scanner({
     setLastRecognizedBook(null)
 
     try {
+      // Dispose of any previous scanner before creating a new one.
       await stopCameraScanner()
+
+      // The reader element is rendered only while cameraActive is true.
+      // Flush this state update so #qr-reader exists before html5-qrcode
+      // tries to attach its video element to it.
+      flushSync(() => {
+        setCameraActive(true)
+      })
+
+      const readerElement = document.getElementById('qr-reader')
+      if (!readerElement) {
+        throw new Error('Element #qr-reader nebyl po vykreslení nalezen.')
+      }
+
       const html5Qrcode = new Html5Qrcode('qr-reader')
       html5QrcodeRef.current = html5Qrcode
 
@@ -88,23 +103,36 @@ export default function Scanner({
         { facingMode: 'environment' },
         config,
         async (decodedText) => {
-          // Barcode / EAN / ISBN successfully read
           await stopCameraScanner()
           handleQuerySearch(decodedText, 'ISN')
         },
         () => {
-          // Ignore individual frame errors
+          // Individual frame decode failures are expected while scanning.
         }
       )
-
-      setCameraActive(true)
     } catch (err) {
       console.error('Spuštění fotoaparátu selhalo:', err)
+
+      // Release any partially initialized camera resources after a failed start.
+      if (html5QrcodeRef.current) {
+        try {
+          if (html5QrcodeRef.current.isScanning) {
+            await html5QrcodeRef.current.stop()
+          }
+          html5QrcodeRef.current.clear()
+        } catch (cleanupError) {
+          console.error('Uvolnění fotoaparátu po chybě selhalo:', cleanupError)
+        }
+        html5QrcodeRef.current = null
+      }
+
       setCameraActive(false)
-      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      if (err?.name === 'NotAllowedError' || err?.name === 'PermissionDeniedError') {
         setErrorMessage('Přístup k fotoaparátu byl zamítnut. Povolte fotoaparát v prohlížeči nebo zadejte kód ručně.')
+      } else if (err?.name === 'NotFoundError') {
+        setErrorMessage('Nebyla nalezena dostupná kamera. Zkuste jiné zařízení nebo zadejte kód ručně.')
       } else {
-        setErrorMessage('Fotoaparát se nepodařilo spustit. Můžete vyhledat knihu ručně níže.')
+        setErrorMessage('Fotoaparát se nepodařilo spustit. Zkuste stránku obnovit nebo vyhledat knihu ručně níže.')
       }
     }
   }
