@@ -3,6 +3,69 @@
 // Struktura je flexibilní: zobrazují se pouze vyplněné atributy.
 
 export const maturitaRozbory = {
+  // book-101: Epos o Gilgamešovi (Neznámý autor)
+  "book-101": {
+    bookId: "book-101",
+    title: "Epos o Gilgamešovi",
+    author: "Neznámý autor",
+    sources: [
+      {
+        name: "Rozbor-díla.cz – Epos o Gilgamešovi rozbor díla k maturitě",
+        url: "https://rozbor-dila.cz/epos-o-gilgamesovi-rozbor-dila-k-maturite/"
+      }
+    ],
+    generalInfo: {
+      literaryKind: "Epika",
+      literaryGenre: "Starověký hrdinský epos",
+      literaryForm: "Poezie (veršovaná skladba, volný verš)",
+      timeAndSpace: "Starověká Mezopotámie, sumerské a babylonské město Uruk a mytické končiny (cedrový les, vody smrti), cca 2600–2000 př. n. l."
+    },
+    themeAndMotifs: {
+      theme: "Oslava hrdinství a přátelství, marné hledání lidské nesmrtelnosti a poznání, že nesmrtelnost člověka spočívá v jeho skutcích a odkazu pro lidstvo.",
+      motifs: "Gilgameš, Enkidu, přátelství, stavba hradeb Uruku, cedrový les a Chumbaba, nebeský býk, strach ze smrti, potopa světa, Utanapištim, rostlina věčného mládí, had."
+    },
+    composition: {
+      structure: "Prolog a 12 tabulek (zpěvů) nalezených v Ninive v Aššurbanipalově knihovně",
+      timeline: "Chronologická kompozice s vloženými vyprávěními (např. mýtus o potopě světa v 11. tabulce)"
+    },
+    characters: [
+      {
+        name: "Gilgameš",
+        role: "Král Uruku, z 2/3 bůh a z 1/3 člověk",
+        description: "Zpočátku krutý vládce nutící lid stavět hradby bez odpočinku; po seznámení s Enkiduem se stává věrným přítelem; po jeho smrti trpí strachem ze smrti a hledá tajemství věčného života."
+      },
+      {
+        name: "Enkidu",
+        role: "Polodivoký člověk stvořený bohyní Aruru",
+        description: "Původně vyslaný zkrotit Gilgameše; po vzájemném souboji se stane jeho nejbližším druhem a bratrem; umírá na kletbu bohů po zabití nebeského býka."
+      },
+      {
+        name: "Ištar",
+        role: "Bohyně lásky a války",
+        description: "Marnivá a pomstychtivá bohyně; poté, co ji Gilgameš odmítne kvůli její minulosti, sešle na Uruk ničivého nebeského býka."
+      },
+      {
+        name: "Utanapištim (Uta-napišta)",
+        role: "Jediný člověk, který přežil potopu světa",
+        description: "Bohové mu darovali nesmrtelnost; Gilgamešovi ukáže zkoušku bdění a prozradí mu tajemství o omlazující vodní rostlině."
+      },
+      {
+        name: "Chumbaba (Chuvava)",
+        role: "Démonický strážce cedrového lesa",
+        description: "Obrovská nestvůra chránící posvátné cedry, kterou Gilgameš s Enkiduem s pomocí boha Šamaše přemohou."
+      }
+    ],
+    narratorAndStyle: {
+      narrativeMethod: "Er-forma, nezaujatý vypravěč, vznešený monologický tón lidového eposu.",
+      languageCharacteristics: "Vysoký styl, archaismy, číselná symbolika (čísla 3, 6, 7 a 12), epiteton ornans (básnické přívlastky), paralelismy, anafory a epifory; původně zapsáno klínovým písmem na hliněných tabulkách."
+    },
+    summary: "Král Gilgameš vládne Uruku tvrdou rukou. Bohové proto stvoří divocha Enkidua, aby ho zkrotil. Po počátečním souboji se však oba hrdinové spřátelí a vydají se do cedrového lesa přemoci netvora Chumbabu. Když Gilgameš odmítne lásku bohyně Ištar, ta na Uruk pošle nebeského býka, kterého Gilgameš s Enkiduem zabijí. Bohové za to Enkidua potrestají smrtí. Zdrcený Gilgameš pocítí děs ze své vlastní smrtelnosti a putuje na konec světa za Utanapištimem, aby získal věčný život. Utanapištim ho vyzkouší bděním (v němž Gilgameš selže), ale daruje mu radu o kouzelné bylině mládí. Cestou zpět mu však rostlinu pozře vodní had. Gilgameš se vrací do Uruku s prázdnýma rukama, avšak při pohledu na mohutné hradby, jež nechal postavit pro ochranu svého lidu, pochopí: jeho nesmrtelnost nespočívá ve věčném těle, nýbrž v trvalém odkazu a skutcích, které po sobě zanechá.",
+    historicalContext: {
+      literaryContext: "Nejstarší památka světového písemnictví (sumerská, babylonská a akkadská literatura), starověká Mezopotámie.",
+      authorContext: "Neznámý autor – dílo vznikalo ústní lidovou slovesností přibližně od 3. tisíciletí př. n. l., v definitivní podobě sepsáno kolem roku 1200 př. n. l. a dochováno v knihovně krále Aššurbanipala v Ninive."
+    }
+  },
+
   // book-229: R.U.R. (Karel Čapek)
   "book-229": {
     bookId: "book-229",
@@ -379,4 +442,12 @@ export function getRozborByBookId(bookId) {
 // Pomocná funkce pro ověření, zda kniha má dostupný rozbor
 export function hasRozbor(bookId) {
   return Boolean(maturitaRozbory[bookId])
+}
+
+// Pomocná funkce pro vygenerování přímého vyhledávacího odkazu na rozbor-dila.cz
+export function getRozborDilaSearchUrl(title) {
+  if (!title) return 'https://rozbor-dila.cz/seznam-rozboru/'
+  // Odstranění závorek a doplňků pro přesnější vyhledávání
+  const cleanTitle = title.replace(/\(.*?\)/g, '').trim()
+  return `https://rozbor-dila.cz/?s=${encodeURIComponent(cleanTitle)}`
 }

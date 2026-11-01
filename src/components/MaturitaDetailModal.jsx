@@ -16,12 +16,13 @@ import {
   ChevronUp,
   AlertCircle
 } from 'lucide-react'
-import { getRozborByBookId } from '../data/maturitaRozbory'
+import { getRozborByBookId, getRozborDilaSearchUrl } from '../data/maturitaRozbory'
 
 export default function MaturitaDetailModal({ book, onClose }) {
   if (!book) return null
 
   const rozbor = getRozborByBookId(book.id)
+  const searchUrl = getRozborDilaSearchUrl(book.title)
 
   // Accordion state to collapse/expand sections easily on mobile
   const [openSections, setOpenSections] = useState({
@@ -94,15 +95,30 @@ export default function MaturitaDetailModal({ book, onClose }) {
                 <AlertCircle className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-slate-800 text-sm">Rozbor zatím není dostupný</h3>
+                <h3 className="font-bold text-slate-800 text-sm">Rozbor zatím není v aplikaci uložen</h3>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Pro knihu <strong className="text-slate-700">„{book.title}“</strong> zatím nebyl do aplikace vložen strukturovaný maturitní rozbor.
+                  Pro knihu <strong className="text-slate-700">„{book.title}“</strong> zatím nebyl do lokální databáze vložen strukturovaný maturitní rozbor.
                 </p>
               </div>
-              <div className="bg-white border border-slate-200 p-3 rounded-xl text-left text-[11px] space-y-1.5 text-slate-600">
-                <p className="font-semibold text-slate-700">Jak rozbor doplnit?</p>
-                <p>
-                  Rozbory lze jednoduše vložit do datového modulu <code className="bg-slate-100 px-1 py-0.5 rounded text-slate-800">src/data/maturitaRozbory.js</code> pod identifikačním kódem této knihy: <span className="font-mono font-bold text-amber-800">{book.id}</span>.
+
+              {/* Tlačítko pro vyhledání rozboru na rozbor-dila.cz podle názvu knihy */}
+              <a
+                href={searchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition-colors shadow-xs"
+              >
+                <span>Najít rozbor díla „{book.title}“ na Rozbor-díla.cz</span>
+                <ExternalLink className="w-4 h-4 shrink-0" />
+              </a>
+
+              <div className="bg-white border border-slate-200 p-3.5 rounded-xl text-left text-[11px] space-y-2 text-slate-600">
+                <p className="font-semibold text-slate-800 flex items-center gap-1.5">
+                  <Info className="w-4 h-4 text-emerald-700" />
+                  Jak rozbor trvale vložit přímo do aplikace?
+                </p>
+                <p className="leading-relaxed">
+                  Otevřete <code className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 font-mono">src/data/maturitaRozbory.js</code> a vložte rozbor pod unikátním ID této knihy: <span className="font-mono font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">{book.id}</span>.
                 </p>
               </div>
             </div>
@@ -399,6 +415,15 @@ export default function MaturitaDetailModal({ book, onClose }) {
                           <ExternalLink className="w-3.5 h-3.5 shrink-0 text-amber-700" />
                         </a>
                       ))}
+                      <a
+                        href={searchUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors text-slate-700 font-medium text-[11px]"
+                      >
+                        <span className="truncate">Vyhledat další verze rozboru pro „{book.title}“ na Rozbor-díla.cz</span>
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+                      </a>
                     </div>
                   )}
                 </div>
