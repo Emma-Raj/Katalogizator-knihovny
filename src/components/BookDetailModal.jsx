@@ -13,7 +13,7 @@ import {
   Info
 } from 'lucide-react'
 
-export default function BookDetailModal({ book, onClose, onBorrowBook }) {
+export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleMaturita, onOpenRozbor }) {
   const [borrowerName, setBorrowerName] = useState('')
   const [showBorrowForm, setShowBorrowForm] = useState(false)
   const [borrowSuccessMsg, setBorrowSuccessMsg] = useState('')
@@ -52,25 +52,67 @@ export default function BookDetailModal({ book, onClose, onBorrowBook }) {
 
           {/* Main Title & Author */}
           <div>
-            <div className="flex items-center gap-2 flex-wrap mb-1">
-              {book.isMaturita ? (
-                <span className="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-amber-300">
-                  <GraduationCap className="w-3.5 h-3.5 text-amber-700" />
-                  <span>Maturitní četba</span>
+            <div className="flex items-center justify-between gap-2 flex-wrap mb-1.5">
+              <div className="flex items-center gap-2 flex-wrap">
+                {book.isMaturita ? (
+                  <span className="bg-amber-100 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-amber-300 shadow-2xs">
+                    <GraduationCap className="w-3.5 h-3.5 text-amber-700" />
+                    <span>Maturitní četba</span>
+                  </span>
+                ) : (
+                  <span className="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-0.5 rounded-full border border-slate-200">
+                    Běžná literatura
+                  </span>
+                )}
+                <span className="bg-emerald-50 text-emerald-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  {book.genre}
                 </span>
-              ) : (
-                <span className="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                  Běžná literatura
-                </span>
+              </div>
+
+              {onToggleMaturita && (
+                <button
+                  type="button"
+                  onClick={() => onToggleMaturita(book.id)}
+                  className={`text-[11px] font-semibold px-2.5 py-1 rounded-xl transition-all border flex items-center gap-1 ${
+                    book.isMaturita
+                      ? 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100'
+                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                  }`}
+                  title={book.isMaturita ? 'Odebrat z maturitní četby' : 'Označit jako maturitní knihu'}
+                >
+                  <GraduationCap className="w-3.5 h-3.5" />
+                  <span>{book.isMaturita ? 'Odebrat z maturity' : 'Označit jako maturitu'}</span>
+                </button>
               )}
-              <span className="bg-emerald-50 text-emerald-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-emerald-200">
-                {book.genre}
-              </span>
             </div>
 
             <h2 className="text-xl font-bold text-slate-900 leading-snug">{book.title}</h2>
             <p className="text-sm font-semibold text-slate-600 mt-0.5">{book.author}</p>
           </div>
+
+          {/* Maturita Rozbor Action Button if book is marked as Maturita */}
+          {book.isMaturita && (
+            <div className="bg-gradient-to-r from-amber-50 to-amber-100/60 border border-amber-300 rounded-2xl p-3 flex items-center justify-between gap-3 shadow-2xs">
+              <div className="flex items-center gap-2.5">
+                <div className="bg-amber-500 text-slate-950 p-2 rounded-xl">
+                  <GraduationCap className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-xs text-amber-950">Maturitní rozbor díla</h4>
+                  <p className="text-[11px] text-amber-800">
+                    Strukturovaný rozbor k ústní maturitní zkoušce
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => onOpenRozbor && onOpenRozbor(book)}
+                className="bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-950 text-xs font-extrabold px-3 py-2 rounded-xl shadow-xs transition-all shrink-0 flex items-center gap-1"
+              >
+                <span>Otevřít rozbor</span>
+              </button>
+            </div>
+          )}
 
           {/* Status Badge */}
           <div className="p-3.5 rounded-2xl border flex items-center justify-between bg-slate-50 border-slate-200">

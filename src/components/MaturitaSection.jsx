@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { GraduationCap, BookOpen, CheckCircle, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 
-export default function MaturitaSection({ books, onSelectBook }) {
+import { hasRozbor } from '../data/maturitaRozbory'
+
+export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
   const sections = [
     {
       id: 'do_18_stoleti',
@@ -95,7 +97,24 @@ export default function MaturitaSection({ books, onSelectBook }) {
                         </div>
                       </div>
 
-                      <div className="shrink-0 text-right">
+                      <div className="shrink-0 flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (onOpenRozbor) onOpenRozbor(book)
+                          }}
+                          className={`text-[10px] font-extrabold px-2.5 py-1 rounded-xl transition-all flex items-center gap-1 shadow-2xs border ${
+                            hasRozbor(book.id)
+                              ? 'bg-amber-500 hover:bg-amber-600 text-slate-950 border-amber-400'
+                              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200'
+                          }`}
+                          title="Zobrazit maturitní rozbor díla"
+                        >
+                          <GraduationCap className="w-3 h-3" />
+                          <span>Rozbor</span>
+                        </button>
+
                         {book.isBorrowed ? (
                           <span className="text-[10px] font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-full">
                             Vypůjčeno
