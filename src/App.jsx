@@ -7,6 +7,7 @@ import MaturitaSection from './components/MaturitaSection'
 import BorrowedList from './components/BorrowedList'
 import AddBookModal from './components/AddBookModal'
 import BookDetailModal from './components/BookDetailModal'
+import MaturitaDetailModal from './components/MaturitaDetailModal'
 import { initialBooks } from './data/books'
 import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
@@ -40,6 +41,7 @@ export default function App() {
 
   const [activeTab, setActiveTab] = useState('catalog')
   const [selectedBook, setSelectedBook] = useState(null)
+  const [rozborBook, setRozborBook] = useState(null)
   const [toastMessage, setToastMessage] = useState(null)
 
   // Sync books with LocalStorage
@@ -103,6 +105,37 @@ export default function App() {
   const handleRemoveHistoryItem = (historyId) => {
     setScanHistory((prev) => prev.filter((item) => item.id !== historyId))
     showToast('Položka byla odebrána z historie.', 'success')
+  }
+
+  // Handle toggle Maturita status
+  const handleToggleMaturita = (bookId) => {
+    let updatedStatus = false
+    setBooks((prev) =>
+      prev.map((b) => {
+        if (b.id === bookId) {
+          updatedStatus = !b.isMaturita
+          return {
+            ...b,
+            isMaturita: updatedStatus,
+          }
+        }
+        return b
+      })
+    )
+
+    if (selectedBook && selectedBook.id === bookId) {
+      setSelectedBook((prev) => ({
+        ...prev,
+        isMaturita: updatedStatus,
+      }))
+    }
+
+    showToast(
+      updatedStatus
+        ? 'Kniha byla zařazena do maturitní četby.'
+        : 'Kniha byla odebrána z maturitní četby.',
+      'success'
+    )
   }
 
   // Handle Borrow
@@ -175,7 +208,11 @@ export default function App() {
           )}
 
           {activeTab === 'maturita' && (
-            <MaturitaSection books={books} onSelectBook={(b) => setSelectedBook(b)} />
+            <MaturitaSection
+              books={books}
+              onSelectBook={(b) => setSelectedBook(b)}
+              onOpenRozbor={(b) => setRozborBook(b)}
+            />
           )}
 
           {activeTab === 'scan' && (
@@ -205,6 +242,16 @@ export default function App() {
             book={selectedBook}
             onClose={() => setSelectedBook(null)}
             onBorrowBook={handleBorrowBook}
+            onToggleMaturita={handleToggleMaturita}
+            onOpenRozbor={(b) => setRozborBook(b)}
+          />
+        )}
+
+        {/* Maturita Rozbor Detail Modal */}
+        {rozborBook && (
+          <MaturitaDetailModal
+            book={rozborBook}
+            onClose={() => setRozborBook(null)}
           />
         )}
 
