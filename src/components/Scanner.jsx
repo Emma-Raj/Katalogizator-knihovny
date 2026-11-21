@@ -21,7 +21,7 @@ import {
   Building,
   FileText
 } from 'lucide-react'
-import { Html5Qrcode } from 'html5-qrcode'
+import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode'
 import { searchKnihovnyApi, normalizeIsbn, ALLOWED_SEARCH_TYPES } from '../services/knihovnyApi'
 
 export default function Scanner({
@@ -94,9 +94,21 @@ export default function Scanner({
       html5QrcodeRef.current = html5Qrcode
 
       const config = {
+        // Explicitly enable common retail/library barcode formats.
+        // ISBN-13 is encoded as EAN-13 on the back cover of most books.
+        // Scan the complete camera frame. A narrow fixed scan box can miss
+        // the long EAN-13 barcode on book covers, especially on iPhone.
         fps: 10,
-        qrbox: { width: 280, height: 160 },
-        aspectRatio: 1.333
+        formatsToSupport: [
+          Html5QrcodeSupportedFormats.EAN_13,
+          Html5QrcodeSupportedFormats.EAN_8,
+          Html5QrcodeSupportedFormats.UPC_A,
+          Html5QrcodeSupportedFormats.UPC_E,
+          Html5QrcodeSupportedFormats.CODE_128,
+          Html5QrcodeSupportedFormats.CODE_39,
+          Html5QrcodeSupportedFormats.ITF,
+          Html5QrcodeSupportedFormats.QR_CODE
+        ]
       }
 
       await html5Qrcode.start(
@@ -110,6 +122,36 @@ export default function Scanner({
           // Individual frame decode failures are expected while scanning.
         }
       )
+
+      // iOS Safari can show the camera preview while its decoder receives
+      // frames that are too small or poorly focused. Once scanning has
+      // started, request a useful resolution and apply focus/zoom only when
+      // the current camera explicitly reports support for those controls.
+      try {
+        const capabilities = html5Qrcode.getRunningTrackCapabilities()
+        const advanced = []
+
+        if (Array.isArray(capabilities.focusMode) && capabilities.focusMode.includes('continuous')) {
+          advanced.push({ focusMode: 'continuous' })
+        }
+
+        if (capabilities.zoom && typeof capabilities.zoom.max === 'number') {
+          const zoom = Math.min(2, capabilities.zoom.max)
+          if (zoom >= (capabilities.zoom.min ?? 1)) {
+            advanced.push({ zoom })
+          }
+        }
+
+        await html5Qrcode.applyVideoConstraints({
+          width: { ideal: 1280 },
+          frameRate: { ideal: capabilities.frameRate?.max || 24 },
+          ...(advanced.length ? { advanced } : {})
+        })
+      } catch (constraintError) {
+        // Some browsers do not expose focus/zoom controls. Scanning should
+        // continue with the camera's default settings in that case.
+        console.warn('Vylepšení obrazu fotoaparátu není dostupné:', constraintError)
+      }
     } catch (err) {
       console.error('Spuštění fotoaparátu selhalo:', err)
 
