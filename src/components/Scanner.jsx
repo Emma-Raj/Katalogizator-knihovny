@@ -122,6 +122,36 @@ export default function Scanner({
           // Individual frame decode failures are expected while scanning.
         }
       )
+
+      // iOS Safari can show the camera preview while its decoder receives
+      // frames that are too small or poorly focused. Once scanning has
+      // started, request a useful resolution and apply focus/zoom only when
+      // the current camera explicitly reports support for those controls.
+      try {
+        const capabilities = html5Qrcode.getRunningTrackCapabilities()
+        const advanced = []
+
+        if (Array.isArray(capabilities.focusMode) && capabilities.focusMode.includes('continuous')) {
+          advanced.push({ focusMode: 'continuous' })
+        }
+
+        if (capabilities.zoom && typeof capabilities.zoom.max === 'number') {
+          const zoom = Math.min(2, capabilities.zoom.max)
+          if (zoom >= (capabilities.zoom.min ?? 1)) {
+            advanced.push({ zoom })
+          }
+        }
+
+        await html5Qrcode.applyVideoConstraints({
+          width: { ideal: 1280 },
+          frameRate: { ideal: capabilities.frameRate?.max || 24 },
+          ...(advanced.length ? { advanced } : {})
+        })
+      } catch (constraintError) {
+        // Some browsers do not expose focus/zoom controls. Scanning should
+        // continue with the camera's default settings in that case.
+        console.warn('Vylepšení obrazu fotoaparátu není dostupné:', constraintError)
+      }
     } catch (err) {
       console.error('Spuštění fotoaparátu selhalo:', err)
 
