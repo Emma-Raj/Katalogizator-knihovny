@@ -96,12 +96,9 @@ export default function Scanner({
       const config = {
         // Explicitly enable common retail/library barcode formats.
         // ISBN-13 is encoded as EAN-13 on the back cover of most books.
-        fps: 12,
-        qrbox: (viewfinderWidth, viewfinderHeight) => ({
-          width: Math.min(Math.floor(viewfinderWidth * 0.9), 360),
-          height: Math.min(Math.floor(viewfinderHeight * 0.5), 180)
-        }),
-        aspectRatio: 1.333,
+        // Scan the complete camera frame. A narrow fixed scan box can miss
+        // the long EAN-13 barcode on book covers, especially on iPhone.
+        fps: 10,
         formatsToSupport: [
           Html5QrcodeSupportedFormats.EAN_13,
           Html5QrcodeSupportedFormats.EAN_8,
