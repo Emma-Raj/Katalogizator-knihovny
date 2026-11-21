@@ -21,7 +21,7 @@ import {
   Building,
   FileText
 } from 'lucide-react'
-import { Html5Qrcode } from 'html5-qrcode'
+import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode'
 import { searchKnihovnyApi, normalizeIsbn, ALLOWED_SEARCH_TYPES } from '../services/knihovnyApi'
 
 export default function Scanner({
@@ -94,9 +94,24 @@ export default function Scanner({
       html5QrcodeRef.current = html5Qrcode
 
       const config = {
-        fps: 10,
-        qrbox: { width: 280, height: 160 },
-        aspectRatio: 1.333
+        // Explicitly enable common retail/library barcode formats.
+        // ISBN-13 is encoded as EAN-13 on the back cover of most books.
+        fps: 12,
+        qrbox: (viewfinderWidth, viewfinderHeight) => ({
+          width: Math.min(Math.floor(viewfinderWidth * 0.9), 360),
+          height: Math.min(Math.floor(viewfinderHeight * 0.5), 180)
+        }),
+        aspectRatio: 1.333,
+        formatsToSupport: [
+          Html5QrcodeSupportedFormats.EAN_13,
+          Html5QrcodeSupportedFormats.EAN_8,
+          Html5QrcodeSupportedFormats.UPC_A,
+          Html5QrcodeSupportedFormats.UPC_E,
+          Html5QrcodeSupportedFormats.CODE_128,
+          Html5QrcodeSupportedFormats.CODE_39,
+          Html5QrcodeSupportedFormats.ITF,
+          Html5QrcodeSupportedFormats.QR_CODE
+        ]
       }
 
       await html5Qrcode.start(
