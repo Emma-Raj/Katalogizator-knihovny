@@ -130,10 +130,10 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
                       <div>
                         <h4 className="font-bold text-xs text-slate-900">{book.title}</h4>
                         <p className="text-[11px] text-slate-600">{book.author}</p>
-                        <div className="flex items-center gap-1 text-[10px] text-emerald-700 mt-0.5">
-                          <MapPin className="w-3 h-3 text-emerald-600" />
-                          <span>{book.location}</span>
-                        </div>
+                        {book.location && <div className="flex items-center gap-1 text-[10px] text-slate-500 mt-0.5">
+                          <MapPin className="w-3 h-3 text-slate-400" />
+                          <span>Poznámka: {book.location}</span>
+                        </div>}
                       </div>
 
                       <div className="shrink-0 flex items-center gap-1.5">
