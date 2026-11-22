@@ -25,8 +25,8 @@ export default function BookList({ books, onSelectBook }) {
         book.title.toLowerCase().includes(query) ||
         book.author.toLowerCase().includes(query) ||
         book.genre.toLowerCase().includes(query) ||
-        book.barcode.toLowerCase().includes(query) ||
-        book.location.toLowerCase().includes(query)
+        (book.barcode || '').toLowerCase().includes(query) ||
+        (book.location || '').toLowerCase().includes(query)
 
       // Maturita filter
       const matchesMaturita = !maturitaOnly || book.isMaturita
@@ -169,7 +169,7 @@ export default function BookList({ books, onSelectBook }) {
                 {/* Location Badge */}
                 <div className="flex items-center gap-1 text-[11px] text-emerald-800 bg-emerald-50/80 px-2 py-1 rounded-lg border border-emerald-100 w-fit">
                   <MapPin className="w-3 h-3 text-emerald-600 shrink-0" />
-                  <span className="font-semibold truncate">{book.location}</span>
+                  <span className="font-semibold truncate">{book.location || 'Umístění neuvedeno'}</span>
                 </div>
               </div>
 
