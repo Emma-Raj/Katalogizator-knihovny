@@ -103,16 +103,18 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
                 onClick={() => toggleSection(sec.id)}
                 className={`w-full p-4 text-left flex items-center justify-between transition-colors bg-gradient-to-r ${sec.color} text-white`}
               >
-                <div className="pr-2">
-                  <div className="flex items-center gap-2">
+                <div className="pr-2 min-w-0">
+                  <h3 className="block text-base leading-snug font-extrabold text-white">
+                    {sec.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-2">
                     <span className="text-[10px] uppercase tracking-wider font-extrabold bg-white/20 px-2 py-0.5 rounded-full">
                       {sec.minCount}
                     </span>
-                    <span className="text-xs font-bold text-amber-200">
-                      ({sectionBooks.length} děl)
+                    <span className="text-xs font-bold text-white">
+                      {sectionBooks.length} {sectionBooks.length === 1 ? 'dílo' : sectionBooks.length < 5 ? 'díla' : 'děl'}
                     </span>
                   </div>
-                  <h3 className="font-bold text-sm mt-1">{sec.title}</h3>
                 </div>
                 <div>
                   {isOpen ? <ChevronUp className="w-5 h-5 text-white" /> : <ChevronDown className="w-5 h-5 text-white" />}
