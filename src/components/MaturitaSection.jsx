@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { GraduationCap, BookOpen, CheckCircle, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 
 import { hasRozbor } from '../data/maturitaRozbory'
@@ -32,6 +32,19 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
   ]
 
   const [openSection, setOpenSection] = useState('do_18_stoleti')
+  const [shelfIds, setShelfIds] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('bma_maturita_shelf_v1') || '[]') } catch { return [] }
+  })
+
+  useEffect(() => {
+    localStorage.setItem('bma_maturita_shelf_v1', JSON.stringify(shelfIds))
+  }, [shelfIds])
+
+  const toggleShelf = (bookId) => {
+    setShelfIds((prev) => prev.includes(bookId) ? prev.filter((id) => id !== bookId) : [...prev, bookId])
+  }
+
+  const shelfBooks = books.filter((book) => shelfIds.includes(book.id) && book.isMaturita)
 
   const toggleSection = (id) => {
     setOpenSection(openSection === id ? null : id)
@@ -51,6 +64,32 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
           </div>
         </div>
       </div>
+
+      {/* Personal maturita reading shelf */}
+      <section className="bg-white border border-emerald-200 rounded-2xl p-4 shadow-sm space-y-3">
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <h3 className="font-extrabold text-emerald-950 text-sm flex items-center gap-2"><BookOpen className="w-4 h-4 text-emerald-700" /> Moje maturitní četba</h3>
+            <p className="text-[11px] text-slate-500 mt-1">Vlastní výběr knih z oficiálního seznamu.</p>
+          </div>
+          <span className="text-xs font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-100 rounded-full px-2.5 py-1">{shelfBooks.length} {shelfBooks.length === 1 ? 'kniha' : shelfBooks.length < 5 ? 'knihy' : 'knih'}</span>
+        </div>
+        {shelfBooks.length ? (
+          <div className="space-y-1.5">
+            {shelfBooks.map((book) => (
+              <div key={book.id} className="flex items-center justify-between gap-2 bg-emerald-50/70 rounded-xl px-3 py-2">
+                <button type="button" onClick={() => onSelectBook(book)} className="min-w-0 text-left">
+                  <span className="block text-xs font-bold text-slate-800">{book.title}</span>
+                  <span className="block text-[11px] text-slate-500">{book.author}</span>
+                </button>
+                <button type="button" onClick={() => toggleShelf(book.id)} className="shrink-0 text-[11px] font-bold text-red-700 px-2 py-1 rounded-lg hover:bg-red-50">Odebrat</button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-xs text-slate-500 bg-slate-50 rounded-xl p-3">Zatím tu nemáš žádné knihy. Přidej si je tlačítkem „Přidat na poličku“ u vybraného díla níže.</p>
+        )}
+      </section>
 
       {/* Categories Accordions */}
       <div className="space-y-3">
@@ -115,6 +154,13 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
                           <span>Rozbor</span>
                         </button>
 
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); toggleShelf(book.id) }}
+                          className={`text-[10px] font-bold px-2 py-1 rounded-lg border ${shelfIds.includes(book.id) ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-50'}`}
+                        >
+                          {shelfIds.includes(book.id) ? 'Na poličce ✓' : 'Přidat na poličku'}
+                        </button>
                         {book.isBorrowed ? (
                           <span className="text-[10px] font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-full">
                             Vypůjčeno
