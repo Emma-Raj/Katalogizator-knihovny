@@ -775,7 +775,194 @@ export const maturitaRozbory = {
     summary: "Jean Valjean je po letech propuštěn z galejí, ale společnost ho kvůli minulosti odmítá. Setkání s biskupem, který mu projeví nečekané milosrdenství, ho přiměje změnit život. Pod novou identitou se stane váženým mužem, přesto ho pronásleduje inspektor Javert. Valjean se ujme malé Cosetty, dcery Fantiny, a snaží se jí zajistit bezpečí. V Paříži se jejich osudy protnou s mladými revolucionáři a Mariem. Román ukazuje, jak chudoba, předsudky a nespravedlivé zákony ovlivňují lidské životy.",
     historicalContext: { literaryContext: "Francouzský romantismus 19. století s výraznými realistickými a sociálně kritickými prvky.", authorContext: "Victor Hugo (1802–1885), francouzský básník, dramatik a prozaik. Bídníci vyšli roku 1862." }
   }
+,
 
+  // book-161: Proces (Franz Kafka)
+  "book-161": {
+    bookId: "book-161", title: "Proces", author: "Franz Kafka",
+    sources: [{ name: "Píšem.cz – Proces: rozbor díla k maturitě", url: "https://www.pisem.cz/proces-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Modernistický a existenciální román", literaryForm: "Próza", timeAndSpace: "Neurčené město, převážně městské interiéry; počátek 20. století." },
+    themeAndMotifs: { theme: "Bezmoc jednotlivce před nepochopitelnou mocí, vina, odcizení a nemožnost dobrat se spravedlnosti.", motifs: "Soud, zatčení, byrokracie, labyrint, úzkost, dveře a překážky, autorita." },
+    composition: { structure: "Nedokončený román; posmrtně vydané členění do kapitol a fragmentů sestavil Max Brod.", timeline: "Převážně chronologický rámec přibližně jednoho roku, s epizodami a nedokončenými částmi.", dramaticStructure: "Josef K. je zatčen bez vysvětlení, marně hledá pravidla procesu a pomoc, až je nakonec popraven." },
+    characters: [
+      { name: "Josef K.", role: "Hlavní postava", description: "Bankovní prokurista, který se snaží zachovat sebejistotu, ale postupně ho proces zcela pohltí." },
+      { name: "Advokát Huld", role: "Obhájce", description: "Nemocný a vlivný právník, jehož pomoc je neúčinná a klienty spíše udržuje v závislosti." },
+      { name: "Leni", role: "Huldova ošetřovatelka", description: "Žena, která se sblíží s Josefem K. a nabízí mu další nejasnou cestu k soudu." },
+      { name: "Titorelli", role: "Soudní malíř", description: "Zná prostředí soudu a vysvětluje K. možnosti, které však nevedou ke skutečnému osvobození." },
+      { name: "Vězeňský kaplan", role: "Duchovní", description: "Vypráví K. podobenství Před zákonem a zpochybňuje jeho porozumění vlastní situaci." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s perspektivou omezenou převážně na Josefa K.", languageCharacteristics: "Věcný, střízlivý jazyk, přesné popisy absurdních situací, symbolika a groteskní prvky." },
+    summary: "Josef K. je jednoho rána zatčen, přestože mu nikdo nesdělí, z čeho je obviněn. Může dál chodit do práce, ale postupně se stále více zabývá soudem, jehož pravidlům nerozumí. Navštěvuje výslechy, obrací se na advokáta i další osoby, avšak žádná pomoc nevede k vyřešení případu. Soudní moc proniká do běžného života a K. ztrácí jistotu. V předvečer svých jednatřicátých narozenin ho dva muži odvedou za město a popraví.",
+    historicalContext: { literaryContext: "Pražská německy psaná literatura a evropský modernismus počátku 20. století; dílo bývá spojováno s existencialismem a absurdní prózou.", authorContext: "Franz Kafka (1883–1924), pražský německy píšící spisovatel. Román vznikal v letech 1914–1915 a vyšel posmrtně roku 1925 zásluhou Maxe Broda." }
+  },
+
+  // book-168: Velký Gatsby (F. Scott Fitzgerald)
+  "book-168": {
+    bookId: "book-168", title: "Velký Gatsby", author: "Francis Scott Fitzgerald",
+    sources: [{ name: "Píšem.cz – Velký Gatsby: rozbor díla k maturitě", url: "https://www.pisem.cz/velky-gatsby-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Společenský román s tragickým milostným příběhem", literaryForm: "Próza", timeAndSpace: "Long Island a New York, léto roku 1922, období jazzového věku." },
+    themeAndMotifs: { theme: "Nedosažitelnost amerického snu, iluze bohatství, společenské rozdíly a touha vrátit minulost.", motifs: "Zelené světlo, večírky, peníze, automobil, údolí popela, minulost a společenská přetvářka." },
+    composition: { structure: "Devět kapitol.", timeline: "Převážně chronologické vyprávění jednoho léta, doplněné vzpomínkami na Gatsbyho minulost.", dramaticStructure: "Nick poznává Gatsbyho, odhaluje jeho minulost a vztah k Daisy; střet mezi Gatsbyho snem a realitou končí tragicky." },
+    characters: [
+      { name: "Jay Gatsby", role: "Ústřední postava", description: "Zámožný muž, který si vybudoval novou identitu a pořádá večírky v naději, že získá zpět Daisy." },
+      { name: "Nick Carraway", role: "Vypravěč a svědek", description: "Gatsbyho soused, který události pozoruje a postupně poznává prázdnotu vyšší společnosti." },
+      { name: "Daisy Buchananová", role: "Gatsbyho dávná láska", description: "Půvabná, nerozhodná žena, která zůstává svázána pohodlím a společenským postavením." },
+      { name: "Tom Buchanan", role: "Daisyin manžel", description: "Bohatý a arogantní muž, který si nárokuje moc a kontrolu nad ostatními." },
+      { name: "Jordan Bakerová", role: "Nickova známá", description: "Golfistka a Daisyina přítelkyně, která zprostředkuje část Gatsbyho minulosti." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma; vypravěčem je Nick Carraway jako účastník a svědek událostí.", languageCharacteristics: "Lyrické a obrazné popisy, symbolika, kontrasty a ironie." },
+    summary: "Nick Carraway se přestěhuje na Long Island, kde se seznámí se svým záhadně bohatým sousedem Jayem Gatsbym. Gatsby pořádá velkolepé večírky, ale ve skutečnosti touží znovu navázat vztah s Daisy, kterou miloval před válkou. Nick pomůže jejich setkání a oba obnoví blízkost. Gatsbyho představa, že lze vrátit minulost, však narazí na skutečnost. Po vyhroceném konfliktu dojde k tragické nehodě a Gatsby se stane obětí pomsty. Jeho pohřbu se účastní jen málokdo z lidí, kteří dříve využívali jeho pohostinnost.",
+    historicalContext: { literaryContext: "Americká moderní próza 20. let 20. století, ztracená generace a jazzový věk; kritika konzumní společnosti a amerického snu.", authorContext: "F. Scott Fitzgerald (1896–1940), americký spisovatel. Velký Gatsby vyšel roku 1925." }
+  },
+
+  // book-170: Cizinec (Albert Camus)
+  "book-170": {
+    bookId: "book-170", title: "Cizinec", author: "Albert Camus",
+    sources: [{ name: "Píšem.cz – Cizinec: rozbor díla k maturitě", url: "https://www.pisem.cz/cizinec-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Filozofický a psychologický román, novela", literaryForm: "Próza", timeAndSpace: "Alžír a okolí ve francouzském Alžírsku, 20. století." },
+    themeAndMotifs: { theme: "Absurdita lidské existence a střet jednotlivce se společností, která vyžaduje předstírané emoce.", motifs: "Smrt, slunce, moře, lhostejnost, soud, vina, víra a společenská očekávání." },
+    composition: { structure: "Dvě části; první končí vraždou na pláži, druhá se soustředí na vězení a soud.", timeline: "Chronologické vyprávění.", dramaticStructure: "Meursaultův všední život a čin jsou následně posuzovány společností, která ho odsoudí i za jeho netečnost." },
+    characters: [
+      { name: "Meursault", role: "Hlavní postava a vypravěč", description: "Úředník, který popisuje svět věcně a odmítá předstírat city, jež necítí." },
+      { name: "Marie Cardonová", role: "Meursaultova partnerka", description: "Veselá mladá žena, která touží po bližším vztahu, zatímco Meursault zůstává citově zdrženlivý." },
+      { name: "Raymond Sintès", role: "Meursaultův soused", description: "Konfliktní muž, který Meursaulta zatáhne do sporu se svou bývalou partnerkou a její rodinou." },
+      { name: "Salamano", role: "Starší soused", description: "Osamělý muž, jehož vztah ke psovi odhaluje složitější city, než se na první pohled zdá." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma, vypravěčem je hlavní hrdina Meursault.", languageCharacteristics: "Krátké, úsporné věty, věcný tón, jednoduchá slovní zásoba a kontrast." },
+    summary: "Meursault se dozví o smrti své matky a zúčastní se pohřbu bez obvyklých projevů smutku. Po návratu pokračuje v běžném životě a naváže vztah s Marií. Kvůli sousedovi Raymondovi se dostane do konfliktu s několika muži a na pláži jednoho z nich zastřelí. Při soudním procesu se však pozornost soustředí nejen na samotný čin, ale také na jeho chování při matčině pohřbu a na odmítání náboženské útěchy. Meursault je odsouzen a v závěru přijímá absurditu a lhostejnost světa.",
+    historicalContext: { literaryContext: "Francouzská literatura 40. let 20. století, filozofie absurdity; Camus bývá spojován s existencialismem, sám toto označení odmítal.", authorContext: "Albert Camus (1913–1960), francouzský spisovatel a filozof narozený v Alžírsku, nositel Nobelovy ceny za literaturu z roku 1957. Cizinec vyšel roku 1942." }
+  },
+
+  // book-147: Revizor (Nikolaj Vasiljevič Gogol)
+  "book-147": {
+    bookId: "book-147", title: "Revizor", author: "Nikolaj Vasiljevič Gogol",
+    sources: [{ name: "Píšem.cz – Revizor: rozbor díla k maturitě", url: "https://www.pisem.cz/revizor-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Drama", literaryGenre: "Satirická komedie", literaryForm: "Próza", timeAndSpace: "Nejmenované okresní město v Rusku, 19. století." },
+    themeAndMotifs: { theme: "Kritika úplatkářství, korupce, strachu z autorit a maloměstské omezenosti.", motifs: "Záměna osob, úplatky, pomluvy, úřednická moc, přetvářka a němá scéna." },
+    composition: { structure: "Pět dějství, sevřená a převážně chronologická kompozice.", timeline: "Děj trvá přibližně dva dny.", dramaticStructure: "Úředníci považují Chlestakova za tajného kontrolora, snaží se ho uplácet a pravda vyjde najevo až po jeho odjezdu." },
+    characters: [
+      { name: "Ivan Alexandrovič Chlestakov", role: "Údajný revizor", description: "Bezvýznamný, lehkomyslný mladík, který si užívá pozornosti a nechá se vtáhnout do role významného úředníka." },
+      { name: "Hejtman", role: "Představitel města", description: "Zkorumpovaný a autoritářský úředník, který se bojí odhalení vlastních přečinů." },
+      { name: "Osip", role: "Chlestakovův sluha", description: "Praktičtější a zkušenější než jeho pán; chápe nebezpečí situace a doporučí odjezd." },
+      { name: "Anna Andrejevna", role: "Hejtmanova manželka", description: "Marnivá žena, kterou láká společenský vzestup a pozornost domnělého revizora." },
+      { name: "Bobčinskij a Dobčinskij", role: "Místní statkáři", description: "Dvojice zvědavých mužů, jejichž zpráva spustí nedorozumění." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Drama bez vypravěče; děj tvoří dialogy, monology a scénické poznámky.", languageCharacteristics: "Hovorové prvky, satira, groteska, situační a charakterová komika." },
+    summary: "V okresním městě se rozšíří zpráva, že má přijet tajný revizor. Úředníci, kteří mají co skrývat, začnou panikařit. V hostinci se ubytuje mladý úředníček Chlestakov a místní ho omylem považují za kontrolora. Zahrnují ho poctami, půjčují mu peníze a snaží se získat jeho přízeň. Chlestakov situaci využije, napíše příteli dopis, v němž se úředníkům vysmívá, a odjede. Když dopis dorazí, město zjistí, že naletělo. Vzápětí přijde zpráva o příjezdu skutečného revizora a hra končí slavnou němou scénou.",
+    historicalContext: { literaryContext: "Ruská literatura 19. století na přechodu od romantismu k realismu; hra patří k počátkům kritického realismu.", authorContext: "Nikolaj Vasiljevič Gogol (1809–1852), ruský spisovatel ukrajinského původu. Revizor měl premiéru a vyšel roku 1836, konečná verze pochází z roku 1842." }
+  },
+
+  // book-143: Povídky malostranské (Jan Neruda)
+  "book-143": {
+    bookId: "book-143", title: "Povídky malostranské", author: "Jan Neruda",
+    sources: [{ name: "Píšem.cz – Povídky malostranské: rozbor díla k maturitě", url: "https://www.pisem.cz/povidky-malostranske-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Soubor realistických povídek", literaryForm: "Próza", timeAndSpace: "Pražská Malá Strana, zejména první polovina 19. století." },
+    themeAndMotifs: { theme: "Každodenní život malostranské společnosti, mezilidské vztahy, předsudky, pomluvy a lidské slabosti.", motifs: "Maloměšťáctví, sousedské vztahy, chudoba, pověst, samota, ironie a drobná dobrota." },
+    composition: { structure: "Soubor třinácti samostatných próz, které spojuje prostředí Malé Strany.", timeline: "Jednotlivé povídky mají vlastní časovou posloupnost; celek netvoří souvislý románový děj." },
+    characters: [
+      { name: "Pan Vojtíšek", role: "Postava povídky Přivedla žebráka na mizinu", description: "Oblíbený žebrák, jehož pověst zničí nepravdivé řeči okolí." },
+      { name: "Pan Ryšánek a pan Schlegl", role: "Postavy stejnojmenné povídky", description: "Dva muži, kteří spolu dlouho nemluví kvůli dávnému osobnímu sporu." },
+      { name: "Pan Rybář (Hastrman)", role: "Postava povídky Hastrman", description: "Starší muž, jehož vztah ke sbírce kamenů odhaluje jeho citlivost a potřebu uznání." },
+      { name: "Pan Vorel", role: "Postava povídky Jak si nakouřil pan Vorel pěnovku", description: "Nový obchodník, kterého společenské předsudky připraví o zákazníky." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Převážně er-forma, vypravěč někdy komentuje dění a přibližuje myšlení postav.", languageCharacteristics: "Realistické detaily, ironie, humor, charakterizační jazyk a místní kolorit." },
+    summary: "Soubor zachycuje obyvatele pražské Malé Strany a jejich každodenní starosti, spory i drobné radosti. V jednotlivých povídkách se objevují úředníci, řemeslníci, žebráci, obchodníci a další obyvatelé čtvrti. Autor ukazuje, jak jejich životy ovlivňují pověsti, předsudky, závist i solidarita. Mezi známé příběhy patří osud žebráka Vojtíška, smíření dvou dlouho rozhádaných mužů nebo neúspěch obchodníka Vorla. Malá Strana se stává obrazem širší společnosti.",
+    historicalContext: { literaryContext: "Český realismus a generace májovců v 19. století; důraz na současný život a městské prostředí.", authorContext: "Jan Neruda (1834–1891), český básník, prozaik a novinář, člen generace májovců. Povídky malostranské vyšly knižně roku 1878." }
+  },
+
+  // book-173: Kdo chytá v žitě (J. D. Salinger)
+  "book-173": {
+    bookId: "book-173", title: "Kdo chytá v žitě", author: "Jerome David Salinger",
+    sources: [{ name: "Píšem.cz – Kdo chytá v žitě: rozbor díla k maturitě", url: "https://www.pisem.cz/kdo-chyta-v-zite-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Psychologický román o dospívání", literaryForm: "Próza", timeAndSpace: "New York a okolí, poválečná Amerika 20. století." },
+    themeAndMotifs: { theme: "Dospívání, hledání vlastní identity a konflikt mezi autenticitou a světem dospělých, který hrdina vnímá jako falešný.", motifs: "Samota, odcizení, dětství, nevinnost, škola, město, červená lovecká čepice a kolotoč." },
+    composition: { structure: "26 kapitol.", timeline: "Retrospektivní vyprávění; Holden vzpomíná na několik dnů po odchodu ze školy.", dramaticStructure: "Holden opustí školu, toulá se New Yorkem, setkává se s různými lidmi a hledá blízkost, kterou nedokáže snadno přijmout." },
+    characters: [
+      { name: "Holden Caulfield", role: "Hlavní postava a vypravěč", description: "Citlivý, ironický a rozporuplný dospívající chlapec, který kritizuje přetvářku, ale sám se v sobě nevyzná." },
+      { name: "Phoebe", role: "Holdenova mladší sestra", description: "Bystrá a upřímná dívka, která mu rozumí a pomáhá mu znovu navázat vztah s rodinou." },
+      { name: "Allie", role: "Holdenův zemřelý bratr", description: "Vzpomínka na něj je pro Holdena důležitým zdrojem smutku a citové zranitelnosti." },
+      { name: "D. B.", role: "Holdenův starší bratr", description: "Spisovatel, který pracuje v Hollywoodu; Holden jeho práci vnímá jako ústupek komerčnímu světu." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma, retrospektivní vyprávění hlavního hrdiny.", languageCharacteristics: "Hovorový jazyk, slang, nedokončené věty, opakování, ironie a přímé oslovování čtenáře." },
+    summary: "Holden Caulfield je vyloučen ze školy a rozhodne se předčasně odjet do New Yorku, aby se vyhnul nepříjemnému návratu domů. Několik dnů tráví touláním po městě, navštěvuje hotely, bary a známé, ale často se cítí osamělý a nepochopený. Kritizuje dospělé za přetvářku, zároveň však touží po blízkosti a bezpečí. Nejdůležitější je pro něj vztah k mladší sestře Phoebe a vzpomínka na zemřelého bratra Allieho. Setkání s Phoebe mu pomůže uvědomit si, že nemůže zastavit dospívání ani ochránit všechny před změnou.",
+    historicalContext: { literaryContext: "Americká poválečná próza 50. let 20. století, literatura dospívání a generačního odcizení.", authorContext: "J. D. Salinger (1919–2010), americký spisovatel. Kdo chytá v žitě vyšlo roku 1951." }
+  },
+
+  // book-155: Maryša (Alois a Vilém Mrštíkové)
+  "book-155": {
+    bookId: "book-155", title: "Maryša", author: "Alois a Vilém Mrštíkové",
+    sources: [{ name: "Píšem.cz – Maryša: rozbor díla k maturitě", url: "https://www.pisem.cz/marysa-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Drama", literaryGenre: "Realistické vesnické drama s tragickým koncem", literaryForm: "Próza", timeAndSpace: "Moravská vesnice, konec 19. století." },
+    themeAndMotifs: { theme: "Konflikt osobní svobody a lásky s rodičovskou autoritou, majetkovými zájmy a společenskými konvencemi.", motifs: "Vynucený sňatek, peníze, rodina, čest, vesnické prostředí, nářečí a bezvýchodnost." },
+    composition: { structure: "Pět jednání rozdělených do výstupů.", timeline: "Chronologický děj s časovými skoky mezi jednotlivými jednáními.", dramaticStructure: "Maryša se brání sňatku s bohatým mlynářem Vávrou, ale rodina ji přinutí; po letech se konflikt vyhrotí a končí tragicky." },
+    characters: [
+      { name: "Maryša", role: "Hlavní postava", description: "Mladá žena, která se snaží rozhodovat o vlastním životě, ale pod tlakem rodiny přijme nechtěné manželství." },
+      { name: "Lízal", role: "Maryšin otec", description: "Majetný sedlák, který upřednostňuje hospodářské zájmy a společenské postavení před přáním dcery." },
+      { name: "Vávra", role: "Maryšin manžel", description: "Starší mlynář, který je autoritářský a ve vztahu k Maryše hrubý." },
+      { name: "Francek", role: "Maryšin milý", description: "Chudý mladík, který se vrací z vojny a chce s Maryšou odejít." },
+      { name: "Horačka", role: "Franckova matka", description: "Žena, která Maryše rozumí a upozorňuje na neštěstí vynuceného sňatku." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Drama bez vypravěče; děj tvoří dialogy a scénické poznámky.", languageCharacteristics: "Moravské nářečí v řeči postav, realistické dialogy, lidové písně a podrobné scénické poznámky." },
+    summary: "Maryša miluje chudého Francka, její rodiče však chtějí, aby se provdala za bohatého mlynáře Vávru. Otec Lízal sňatek prosazuje kvůli majetku a rodinným zájmům. Maryša se brání, ale nakonec pod tlakem okolí svolí. Po dvou letech se Francek vrací z vojny a nabízí jí útěk, Maryša však nechce opustit své zásady ani způsobit další skandál. Její manželství je nešťastné a konflikt s Vávrou se vyhrotí do tragického závěru.",
+    historicalContext: { literaryContext: "Český realismus a naturalismus konce 19. století; kritika patriarchálních vztahů a majetkových tlaků na venkově.", authorContext: "Alois (1861–1925) a Vilém (1863–1912) Mrštíkové, čeští spisovatelé a dramatici. Maryša měla premiéru a vyšla roku 1894." }
+  },
+
+  // book-176: 451 stupňů Fahrenheita (Ray Bradbury)
+  "book-176": {
+    bookId: "book-176", title: "451 stupňů Fahrenheita", author: "Ray Bradbury",
+    sources: [{ name: "Píšem.cz – 451 stupňů Fahrenheita: rozbor díla k maturitě", url: "https://www.pisem.cz/451-stupnu-fahrenheita-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Antiutopický román a science fiction", literaryForm: "Próza", timeAndSpace: "Neurčené americké město v blíže neurčené budoucnosti." },
+    themeAndMotifs: { theme: "Nebezpečí cenzury, ztráty svobodného myšlení a společnosti, která upřednostňuje povrchní zábavu před poznáním.", motifs: "Oheň, knihy, obrazovky, paměť, svoboda, konformita a příroda." },
+    composition: { structure: "Tři části: Bylo to příjemné, pálit; Síto a písek; Jasný oheň.", timeline: "Chronologický děj sledující proměnu hlavního hrdiny.", dramaticStructure: "Požárník Montag začne pochybovat o pálení knih, hledá pomoc a nakonec se přidá ke skupině, která uchovává literární paměť." },
+    characters: [
+      { name: "Guy Montag", role: "Hlavní postava", description: "Požárník, který nejprve knihy ničí, ale postupně začne hledat jejich smysl a bránit je." },
+      { name: "Clarisse McClellanová", role: "Montagova sousedka", description: "Zvídavá mladá dívka, která ho přiměje klást otázky o štěstí a společnosti." },
+      { name: "Mildred", role: "Montagova manželka", description: "Žena pohlcená televizní zábavou, která se vyhýbá hlubším rozhovorům." },
+      { name: "Kapitán Beatty", role: "Velitel požárníků", description: "Vzdělaný obhájce systému, který knihy považuje za zdroj neklidu." },
+      { name: "Faber", role: "Bývalý profesor", description: "Pomáhá Montagovi porozumět významu literatury a samostatného myšlení." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vyprávění sleduje především Montagovu perspektivu.", languageCharacteristics: "Obrazný jazyk, symboly, metafory, kontrasty a napětí mezi technologií a přírodou." },
+    summary: "V budoucí společnosti mají požárníci za úkol vyhledávat a pálit knihy. Guy Montag tuto práci dlouho vykonává bez pochybností, dokud nepotká Clarisse, která ho přiměje přemýšlet o vlastním životě. Po několika událostech začne knihy tajně číst a obrátí se na bývalého profesora Fabera. Jeho jednání je odhaleno a Montag musí uprchnout z města. Přidá se ke skupině lidí, kteří si zapamatovávají celé knihy, aby jejich obsah uchovali pro budoucnost. Město je mezitím zničeno válkou a skupina se vydává k jeho troskám.",
+    historicalContext: { literaryContext: "Americká poválečná literatura, antiutopie a science fiction období studené války.", authorContext: "Ray Bradbury (1920–2012), americký spisovatel. Román Fahrenheit 451 vyšel roku 1953." }
+  },
+
+  // book-191: Jméno růže (Umberto Eco)
+  "book-191": {
+    bookId: "book-191", title: "Jméno růže", author: "Umberto Eco",
+    sources: [{ name: "Píšem.cz – Jméno růže: rozbor díla k maturitě", url: "https://www.pisem.cz/jmeno-ruze-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Historický detektivní a filozofický román", literaryForm: "Próza", timeAndSpace: "Benediktinské opatství v severní Itálii, sedm dní v listopadu 1327." },
+    themeAndMotifs: { theme: "Hledání pravdy a poznání, moc nad informacemi, střet víry a rozumu a nebezpečí fanatismu.", motifs: "Knihovna-labyrint, zakázaná kniha, smích, tajemství, oheň a středověká církev." },
+    composition: { structure: "Rámcové vyprávění s úvodem a sedmi dny rozdělenými podle mnišských modliteb.", timeline: "Chronologický týdenní děj, vyprávěný s velkým časovým odstupem.", dramaticStructure: "Vilém z Baskervillu vyšetřuje záhadná úmrtí v opatství; pátrání ho dovede k tajemství knihovny a zakázaného rukopisu." },
+    characters: [
+      { name: "Vilém z Baskervillu", role: "Hlavní postava", description: "Františkánský mnich a bystrý pozorovatel, který se snaží vysvětlovat události rozumem." },
+      { name: "Adso z Melku", role: "Vypravěč a Vilémův žák", description: "Mladý novic, který po letech vzpomíná na společné vyšetřování." },
+      { name: "Jorge z Burgosu", role: "Starý slepý mnich", description: "Strážce tradiční autority, který se obává svobodného poznání a smíchu." },
+      { name: "Opat", role: "Představený kláštera", description: "Snaží se chránit pověst opatství a udržet kontrolu nad děním." },
+      { name: "Bernardo Gui", role: "Inkvizitor", description: "Představuje represivní moc, která hledá viníka spíše než pravdu." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma; Adso vypráví jako starý mnich o událostech svého mládí, rámec doplňuje fiktivní editor rukopisu.", languageCharacteristics: "Učený a místy archaizující jazyk, latinské vsuvky, intertextualita, symboly a parodie detektivního žánru." },
+    summary: "Františkán Vilém z Baskervillu přijíždí se svým mladým žákem Adsem do benediktinského opatství, kde došlo k záhadným úmrtím mnichů. Vilém začne pátrat a postupně zjišťuje, že klíčem k případu je rozsáhlá knihovna uspořádaná jako labyrint. Vyšetřování odhaluje spory o víru, poznání a hranice církevní autority. Za událostmi stojí slepý mnich Jorge, který se snaží zabránit přístupu k zakázanému textu. Při závěrečném střetu vypukne požár a knihovna i opatství jsou zničeny.",
+    historicalContext: { literaryContext: "Postmodernismus druhé poloviny 20. století; spojení historického románu, detektivky, filozofie a hry s literárními odkazy.", authorContext: "Umberto Eco (1932–2016), italský sémiotik, filozof a spisovatel. Jméno růže vyšlo poprvé roku 1980." }
+  },
+
+  // book-188: Hlava XXII (Joseph Heller)
+  "book-188": {
+    bookId: "book-188", title: "Hlava XXII", author: "Joseph Heller",
+    sources: [{ name: "Píšem.cz – Hlava XXII: rozbor díla k maturitě", url: "https://www.pisem.cz/hlava-xxii-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Satirický a protiválečný román s černým humorem", literaryForm: "Próza", timeAndSpace: "Vojenská základna na ostrově Pianosa a další místa v Itálii, rok 1944." },
+    themeAndMotifs: { theme: "Absurdita války, byrokracie a systému, který podřizuje lidský život vlastní logice.", motifs: "Hlava XXII, vojenské rozkazy, strach ze smrti, moc, peníze, opakování a černý humor." },
+    composition: { structure: "42 kapitol řazených podle postav a témat.", timeline: "Nelineární, epizodická kompozice s návraty k důležitým událostem.", dramaticStructure: "Yossarian se snaží uniknout dalším bojovým letům, ale vojenské velení neustále mění pravidla a znemožňuje mu návrat domů." },
+    characters: [
+      { name: "Yossarian", role: "Hlavní postava", description: "Americký bombardovací pilot, který se snaží přežít a odmítá nesmyslné vojenské požadavky." },
+      { name: "Milo Minderbinder", role: "Vojenský podnikatel", description: "Organizuje obchodní syndikát a ukazuje, jak se zisk stává důležitějším než lidské životy." },
+      { name: "Plukovník Cathcart", role: "Velitel", description: "Opakovaně zvyšuje počet nutných bojových letů, aby oddálil odchod posádek domů." },
+      { name: "Doc Daneeka", role: "Vojenský lékař", description: "Jeho situace ukazuje absurdní důsledky byrokratických pravidel." },
+      { name: "Nately", role: "Mladý pilot", description: "Yossarianův přítel, jehož osud posiluje hlavního hrdinu v odporu proti velení." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s proměnlivým zaměřením na různé postavy.", languageCharacteristics: "Ironie, černý humor, paradox, opakování, absurdní dialogy a groteskní nadsázka." },
+    summary: "Kapitán Yossarian slouží jako bombardovací pilot během druhé světové války. Chce se vrátit domů, ale velitelé stále zvyšují počet bojových letů, které musí posádka absolvovat. Vojenské nařízení zvané Hlava XXII vytváří logickou past: kdo žádá o vyřazení z letů kvůli šílenství, dokazuje tím, že je dostatečně příčetný, aby létal dál. Yossarian sleduje, jak jeho přátelé mizí a umírají, a postupně odmítá přijmout pravidla systému. Nakonec se rozhodne hledat vlastní cestu ven.",
+    historicalContext: { literaryContext: "Americká poválečná próza 60. let, protiválečná literatura, absurdní a groteskní satira.", authorContext: "Joseph Heller (1923–1999), americký spisovatel a veterán druhé světové války. Hlava XXII vyšla roku 1961." }
+  }
 }
 
 // Pomocná funkce pro získání rozboru podle ID knihy
