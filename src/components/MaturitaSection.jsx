@@ -101,7 +101,7 @@ export default function MaturitaSection({ books, onSelectBook, onOpenRozbor }) {
             <div key={sec.id} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
               <button
                 onClick={() => toggleSection(sec.id)}
-                className={`w-full p-4 text-left flex items-center justify-between transition-colors bg-gradient-to-r ${sec.color} text-white`}
+                className="maturita-period-header w-full p-4 text-left flex items-center justify-between transition-colors text-white"
               >
                 <div className="pr-2 min-w-0">
                   <h3 className="block text-base leading-snug font-extrabold text-white">
