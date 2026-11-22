@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react'
 import { Search, Filter, BookOpen, GraduationCap, MapPin, CheckCircle, XCircle, ChevronRight, X } from 'lucide-react'
 
 export default function BookList({ books, onSelectBook, selectedProfile }) {
-  const isMaturant = selectedProfile === 'maturita'
   const [searchTerm, setSearchTerm] = useState('')
   const [maturitaOnly, setMaturitaOnly] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('all')
