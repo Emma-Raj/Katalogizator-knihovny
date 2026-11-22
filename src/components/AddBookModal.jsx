@@ -6,8 +6,10 @@ export default function AddBookModal({ onAddBook }) {
   const [author, setAuthor] = useState('')
   const [genre, setGenre] = useState('Román')
   const [category, setCategory] = useState('ceska_20_21')
-  const [isMaturita, setIsMaturita] = useState(true)
+  const [isMaturita, setIsMaturita] = useState(false)
   const [barcode, setBarcode] = useState('')
+  const [publicationYear, setPublicationYear] = useState('')
+  const [publisher, setPublisher] = useState('')
   const [location, setLocation] = useState('')
   const [description, setDescription] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
@@ -35,6 +37,8 @@ export default function AddBookModal({ onAddBook }) {
       categoryName: selectedCatObj ? selectedCatObj.label : 'Ostatní literatura',
       isMaturita: category !== 'ostatni' ? isMaturita : false,
       barcode: barcode.trim(),
+      publicationYear: publicationYear.trim(),
+      publisher: publisher.trim(),
       location: location.trim(),
       description: description.trim() || `Školní výtisk díla ${title.trim()} od autora ${author.trim()}.`,
       isBorrowed: false,
@@ -49,6 +53,11 @@ export default function AddBookModal({ onAddBook }) {
     setTitle('')
     setAuthor('')
     setDescription('')
+    setBarcode('')
+    setPublicationYear('')
+    setPublisher('')
+    setLocation('')
+    setIsMaturita(false)
     setTimeout(() => setSuccessMsg(''), 4000)
   }
 
@@ -173,6 +182,17 @@ export default function AddBookModal({ onAddBook }) {
               onChange={(e) => setBarcode(e.target.value)}
               className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono font-bold focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1">Rok vydání (nepovinné)</label>
+            <input type="text" inputMode="numeric" placeholder="Např. 2020" value={publicationYear} onChange={(e) => setPublicationYear(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          </div>
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1">Nakladatelství (nepovinné)</label>
+            <input type="text" placeholder="Např. Albatros" value={publisher} onChange={(e) => setPublisher(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500" />
           </div>
         </div>
 
