@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   X,
   MapPin,
@@ -13,10 +13,17 @@ import {
   Info
 } from 'lucide-react'
 
-export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleMaturita, onOpenRozbor }) {
+export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleMaturita, onUpdateLocation, onOpenRozbor }) {
   const [borrowerName, setBorrowerName] = useState('')
   const [showBorrowForm, setShowBorrowForm] = useState(false)
   const [borrowSuccessMsg, setBorrowSuccessMsg] = useState('')
+  const [locationDraft, setLocationDraft] = useState(book?.location || '')
+  const [editingLocation, setEditingLocation] = useState(false)
+
+  useEffect(() => {
+    setLocationDraft(book?.location || '')
+    setEditingLocation(false)
+  }, [book?.id, book?.location])
 
   if (!book) return null
 
@@ -146,18 +153,36 @@ export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleM
             )}
           </div>
 
-          {/* LOCATION (Lokalizátor) - Prominent Box */}
-          <div className="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-4 shadow-xs">
-            <div className="flex items-center gap-2 text-emerald-900 font-bold text-xs uppercase tracking-wider mb-1">
-              <MapPin className="w-4 h-4 text-emerald-700" />
-              <span>Přesné umístění v knihovně</span>
+          {/* Optional, editable location note */}
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+            <div className="flex items-center gap-2 text-slate-700 font-bold text-xs uppercase tracking-wider mb-2">
+              <MapPin className="w-4 h-4 text-slate-500" />
+              <span>Umístění / poznámka</span>
             </div>
-            <p className="text-base font-extrabold text-emerald-950">
-              {book.location || 'Umístění nebylo zadáno'}
-            </p>
-            <p className="text-xs text-emerald-700 mt-1">
-              {book.categoryName}
-            </p>
+            {editingLocation ? (
+              <form onSubmit={(e) => { e.preventDefault(); onUpdateLocation?.(book.id, locationDraft.trim()); setEditingLocation(false) }} className="space-y-2">
+                <input
+                  type="text"
+                  value={locationDraft}
+                  onChange={(e) => setLocationDraft(e.target.value)}
+                  placeholder="Např. přibližné umístění nebo vlastní poznámka"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <div className="flex gap-2">
+                  <button type="submit" className="flex-1 bg-emerald-700 text-white rounded-xl py-2 text-xs font-bold">Uložit</button>
+                  <button type="button" onClick={() => { setLocationDraft(book.location || ''); setEditingLocation(false) }} className="px-3 bg-white border border-slate-200 rounded-xl py-2 text-xs font-semibold text-slate-600">Zrušit</button>
+                  {book.location && <button type="button" onClick={() => { setLocationDraft(''); onUpdateLocation?.(book.id, ''); setEditingLocation(false) }} className="px-3 bg-red-50 border border-red-100 rounded-xl py-2 text-xs font-semibold text-red-700">Smazat</button>}
+                </div>
+              </form>
+            ) : (
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-slate-800 break-words">{book.location || 'Poznámka zatím nebyla vyplněna.'}</p>
+                  <p className="text-[11px] text-slate-500 mt-1">{book.categoryName}</p>
+                </div>
+                <button type="button" onClick={() => setEditingLocation(true)} className="shrink-0 text-xs font-bold text-emerald-700 bg-white border border-emerald-200 rounded-lg px-3 py-2">Upravit</button>
+              </div>
+            )}
           </div>
 
           {/* Barcode Display */}
