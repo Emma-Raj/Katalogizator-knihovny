@@ -367,7 +367,7 @@ export const maturitaRozbory = {
       literaryContext: "Česká meziválečná dramatická tvorba 30. let, humanistický a protifašistický proud.",
       authorContext: "Karel Čapek (1890–1938) – drama napsal v roce 1937 v bezprostřední předzvěsti německé agrese a ohrožení Československa fašismem."
     }
-  }
+  },
   // book-137: Máj (Karel Hynek Mácha)
   "book-137": {
     bookId: "book-137",
@@ -592,7 +592,190 @@ export const maturitaRozbory = {
       literaryContext: "Literatura konce 19. století, estetismus a dekadence. Dílo zároveň zkoumá napětí mezi společenskou morálkou, krásou a osobní svobodou.",
       authorContext: "Oscar Wilde (1854–1900) byl irský dramatik, prozaik a básník, známý vytříbeným stylem, paradoxem a ironií. Román vyšel knižně roku 1891."
     }
+  },,
+
+  // book-106: Hamlet (William Shakespeare)
+  "book-106": {
+    bookId: "book-106", title: "Hamlet", author: "William Shakespeare",
+    sources: [{ name: "Rozbor-díla.cz – Hamlet, kralevic dánský", url: "https://rozbor-dila.cz/hamlet-rozbor-dila-k-maturite/" }],
+    generalInfo: { literaryKind: "Drama", literaryGenre: "Tragédie", literaryForm: "Veršovaná i prozaická dramatická forma", timeAndSpace: "Dánský královský hrad Elsinor a jeho okolí; neurčená minulost." },
+    themeAndMotifs: { theme: "Pomsta, vina, mocenské intriky a hledání pravdy; rozpor mezi morálním přesvědčením a nutností jednat.", motifs: "Duch zemřelého krále, divadlo, šílenství, jed, zrada, smrt a pomsta." },
+    composition: { structure: "Pět dějství, členěných do scén.", timeline: "Převážně chronologický děj.", dramaticStructure: "Duch oznámí Hamletovi, že byl zavražděn Claudiem; Hamlet ověřuje jeho slova divadelní hrou, váhá s pomstou a intriky nakonec vedou k tragickému souboji." },
+    characters: [
+      { name: "Hamlet", role: "Dánský princ", description: "Vzdělaný a přemýšlivý mladík, který se snaží ověřit pravdu o otcově smrti a zápasí s pochybnostmi i odpovědností za pomstu." },
+      { name: "Claudius", role: "Král, Hamletův strýc", description: "Touha po moci ho vede k vraždě bratra; svou vinu skrývá za zdánlivě vlídným vystupováním." },
+      { name: "Gertruda", role: "Královna, Hamletova matka", description: "Po smrti manžela se provdá za Claudia; nerozumí plně synovu odporu a jeho jednání." },
+      { name: "Ofélie", role: "Poloniova dcera", description: "Citlivá mladá žena, která se ocitá mezi poslušností vůči rodině a city k Hamletovi." },
+      { name: "Horacio", role: "Hamletův přítel", description: "Věrný a rozvážný Hamletův důvěrník." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Dramatický text bez vypravěče; děj tvoří dialogy, monology a scénické poznámky.", languageCharacteristics: "Blankvers, metafory, slovní hříčky, kontrasty a filozofické monology." },
+    summary: "Po smrti dánského krále se vlády ujme jeho bratr Claudius a ožení se s vdovou Gertrudou. Hamletovi se zjeví duch otce a sdělí mu, že ho Claudius zavraždil. Hamlet se snaží získat jistotu a nechá sehrát hru, která napodobuje vraždu. Claudiova reakce jeho podezření potvrdí, ale Hamlet stále váhá. Série nedorozumění a intrik vyústí v souboj, při němž umírá většina hlavních postav včetně Hamleta.",
+    historicalContext: { literaryContext: "Anglická renesance a humanismus; alžbětinské drama přebírá antické i středověké náměty a rozvíjí psychologicky složité postavy.", authorContext: "William Shakespeare (1564–1616), anglický dramatik a básník. Hamlet vznikl kolem let 1600–1601." }
   },
+
+  // book-113: Lakomec (Molière)
+  "book-113": {
+    bookId: "book-113", title: "Lakomec", author: "Molière",
+    sources: [{ name: "Rozbor-díla.cz – Lakomec", url: "https://rozbor-dila.cz/lakomec-rozbor-dila-k-maturite-10/" }],
+    generalInfo: { literaryKind: "Drama", literaryGenre: "Klasicistní komedie, satira", literaryForm: "Próza", timeAndSpace: "Měšťanský dům ve Francii, prostředí 17. století." },
+    themeAndMotifs: { theme: "Kritika chorobné lakoty a situace, kdy majetek převáží nad rodinnými vztahy a láskou.", motifs: "Peníze, ukrytá pokladnice, sňatek z rozumu, rodinné spory, přetvářka." },
+    composition: { structure: "Pět dějství.", timeline: "Chronologický děj během krátkého časového úseku.", dramaticStructure: "Harpagon chce výhodně provdat děti a sám se oženit; milostné vztahy mladých se střetnou s jeho majetnickými plány, které vyvrcholí ztrátou pokladnice." },
+    characters: [
+      { name: "Harpagon", role: "Hlavní postava, bohatý měšťan", description: "Podezíravý a posedlý šetřením; peníze jsou pro něj důležitější než štěstí vlastních dětí." },
+      { name: "Kleant", role: "Harpagonův syn", description: "Miluje Marianu a odmítá otcovy plány na jeho sňatek." },
+      { name: "Eliška", role: "Harpagonova dcera", description: "Miluje Valéra a přeje si rozhodovat o svém životě." },
+      { name: "Valér", role: "Správce v Harpagonově domě", description: "Vydává se za sluhu, aby mohl být nablízku Elišce." },
+      { name: "Mariana", role: "Kleantova milá", description: "Skromná mladá žena, kterou si chce Harpagon vzít." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Dramatický text tvořený dialogy a monology.", languageCharacteristics: "Spisovná próza, komické situace, nadsázka, ironie a charakterizační dialogy." },
+    summary: "Harpagon hromadí peníze a snaží se ovládat i sňatky svých dětí. Syn Kleant miluje Marianu, kterou si však chce vzít sám Harpagon; dcera Eliška miluje Valéra. Když Harpagon zjistí, že mu zmizela pokladnice, propadne zoufalství a podezírá okolí. Nakonec se odhalí rodinné vazby Valéra a Mariany a mladí mohou uzavřít sňatky podle svého přání. Harpagon souhlasí hlavně proto, že získá zpět své peníze.",
+    historicalContext: { literaryContext: "Francouzský klasicismus 17. století, který klade důraz na řád, rozum a mravní poučení; komedie zesměšňuje lidské slabosti.", authorContext: "Molière (1622–1673), francouzský dramatik a herec. Lakomec měl premiéru roku 1668." }
+  },
+
+  // book-156: Na západní frontě klid (Erich Maria Remarque)
+  "book-156": {
+    bookId: "book-156", title: "Na západní frontě klid", author: "Erich Maria Remarque",
+    sources: [{ name: "Rozbor-díla.cz – Na západní frontě klid", url: "https://rozbor-dila.cz/na-zapadni-fronte-klid-rozbor-dila-k-maturite-3/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Protiválečný román", literaryForm: "Próza", timeAndSpace: "Západní fronta první světové války, především Francie; také Německo." },
+    themeAndMotifs: { theme: "Nesmyslnost války a její ničivý dopad na mladou generaci; ztráta iluzí, domova a schopnosti vrátit se do běžného života.", motifs: "Fronta, zákopy, přátelství, strach, smrt, domov, generace ztracená válkou." },
+    composition: { structure: "Dvanáct kapitol.", timeline: "Převážně chronologické vyprávění s retrospektivními vzpomínkami.", dramaticStructure: "Sledujeme Pavla Bäumera a jeho spolužáky od vojenského výcviku přes frontové zkušenosti až k postupnému zániku jejich skupiny." },
+    characters: [
+      { name: "Paul Bäumer", role: "Vypravěč a hlavní postava", description: "Mladý německý voják, který postupně ztrácí představy o hrdinství a poznává válku jako každodenní boj o přežití." },
+      { name: "Stanislaus Katczinsky (Kat)", role: "Zkušený voják a Paulův přítel", description: "Praktický, vynalézavý a starostlivý muž, který pomáhá mladším vojákům." },
+      { name: "Albert Kropp", role: "Paulův spolužák", description: "Přemýšlivý voják, jeden z Paulových nejbližších přátel." },
+      { name: "Kantorek", role: "Bývalý učitel", description: "Svým vlasteneckým přesvědčováním přispěl k tomu, že se studenti dobrovolně přihlásili do armády." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma, vyprávění z pohledu Paula Bäumera.", languageCharacteristics: "Věcný a místy hovorový jazyk, dialogy, vnitřní úvahy a dokumentárně působící popisy." },
+    summary: "Student Paul Bäumer narukuje se spolužáky do první světové války, k čemuž je povzbudil jejich učitel. Vojenský výcvik a fronta rychle zničí jejich představy o vlastenectví a hrdinství. Paul zažívá ztráty přátel, krátký návrat domů i stále hlubší odcizení civilnímu životu. Jeho generace přichází o mládí a budoucnost. Na konci války Paul umírá v den, kdy vojenské hlášení stručně oznámí, že na západní frontě byl klid.",
+    historicalContext: { literaryContext: "Světová literatura po první světové válce; protiválečná próza a literatura ztracené generace.", authorContext: "Erich Maria Remarque (1898–1970), německý spisovatel a účastník první světové války. Román vyšel roku 1929." }
+  },
+
+  // book-159: Stařec a moře (Ernest Hemingway)
+  "book-159": {
+    bookId: "book-159", title: "Stařec a moře", author: "Ernest Hemingway",
+    sources: [{ name: "Rozbor-díla.cz – Stařec a moře", url: "https://rozbor-dila.cz/starec-a-more-rozbor-dila-k-maturite-2/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Novela s alegorickými prvky", literaryForm: "Próza", timeAndSpace: "Karibské moře a kubánská rybářská vesnice; 20. století." },
+    themeAndMotifs: { theme: "Vytrvalost, důstojnost člověka a zápas s přírodou i vlastními hranicemi; smysl úsilí i tehdy, když výsledek není podle očekávání.", motifs: "Moře, ryba, rybolov, samota, chlapec, žraloci, sny o lvech." },
+    composition: { structure: "Souvislý text členěný do kapitolových odstavců.", timeline: "Lineární, převážně chronologický děj.", dramaticStructure: "Starý rybář vypluje daleko na moře, po dlouhém zápase uloví obrovského marlina a při návratu o něj postupně přichází." },
+    characters: [
+      { name: "Santiago", role: "Starý kubánský rybář", description: "Zkušený, skromný a vytrvalý muž, který se odmítá vzdát navzdory únavě a nepřízni okolností." },
+      { name: "Manolin", role: "Mladý rybářův pomocník", description: "Chlapec, který má Santiaga rád, váží si ho a zůstává mu věrný i přes neúspěšný lov." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s těsným zaměřením na Santiagovo vnímání; časté vnitřní promluvy.", languageCharacteristics: "Jednoduchý, úsporný jazyk, krátké věty, dialogy a symbolické obrazy." },
+    summary: "Starý rybář Santiago už dlouho nic neulovil a ostatní ho považují za nešťastného. Vypluje proto daleko od pobřeží, kde se na jeho udici chytí obrovský marlin. Následuje vyčerpávající několikadenní zápas, během něhož Santiago k rybě získá respekt. Nakonec ji přiváže k loďce a vydá se zpět. Její krev však přiláká žraloky, kteří z úlovku postupně nechají jen kostru. Santiago se vrací vyčerpaný, ale jeho vytrvalost a důstojnost zůstávají nedotčené.",
+    historicalContext: { literaryContext: "Americká poválečná próza; novela bývá spojována s Hemingwayovým úsporným stylem a principem ledovce.", authorContext: "Ernest Hemingway (1899–1961), americký spisovatel a nositel Nobelovy ceny za literaturu. Stařec a moře vyšel roku 1952." }
+  },
+
+  // book-160: O myších a lidech (John Steinbeck)
+  "book-160": {
+    bookId: "book-160", title: "O myších a lidech", author: "John Steinbeck",
+    sources: [{ name: "Maturita jinak – O myších a lidech", url: "https://www.maturitajinak.cz/wp-content/uploads/2024/10/O-mysich-a-lidech.pdf" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Novela", literaryForm: "Próza", timeAndSpace: "Kalifornský venkov poblíž města Soledad během velké hospodářské krize ve 30. letech 20. století." },
+    themeAndMotifs: { theme: "Přátelství, osamělost, lidské sny a jejich střet s tvrdou realitou; zranitelnost lidí na okraji společnosti.", motifs: "Společný sen o farmě, práce na ranči, samota, síla a slabost, zvířata, přátelství." },
+    composition: { structure: "Šest kapitol bez názvů.", timeline: "Chronologický děj s krátkými retrospektivními zmínkami.", dramaticStructure: "George a Lennie přicházejí za prací na ranč; jejich sen o vlastním hospodářství se postupně přibližuje a následně tragicky zhroutí." },
+    characters: [
+      { name: "George Milton", role: "Jeden z hlavních hrdinů", description: "Drobný, pohotový a zodpovědný muž, který se stará o Lennieho a sdílí s ním sen o vlastním hospodářství." },
+      { name: "Lennie Small", role: "Jeden z hlavních hrdinů", description: "Fyzicky silný muž s mentálním postižením, který má rád hebké věci, ale nedokáže vždy odhadnout vlastní sílu." },
+      { name: "Candy", role: "Starý rančer", description: "Osamělý muž s handicapem, který se chce připojit k plánu na společnou farmu." },
+      { name: "Curleyho žena", role: "Žena vedoucího ranče", description: "Nejmenovaná mladá žena, která touží po pozornosti a uniká ze svého osamělého života." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vypravěč sleduje dění zvenčí; důležitou roli mají dialogy.", languageCharacteristics: "Jednoduchý, místy hovorový jazyk, realistické dialogy a úsporné popisy." },
+    summary: "George a Lennie putují Kalifornií a hledají práci na farmách. Přestože jsou povahově velmi odlišní, drží spolu a sní o tom, že si jednou koupí vlastní malý statek. Na novém ranči se k jejich plánu chce připojit i starý Candy. Lennie však kvůli své síle a neschopnosti odhadnout následky způsobí tragickou událost. George se musí rozhodnout, jak svého přítele ochránit před krutým davem, a jejich společný sen se rozpadá.",
+    historicalContext: { literaryContext: "Americký realismus 20. století; sociálně kritická próza reagující na velkou hospodářskou krizi.", authorContext: "John Steinbeck (1902–1968), americký spisovatel a nositel Nobelovy ceny. Novela vyšla roku 1937." }
+  },
+
+  // book-171: 1984 (George Orwell)
+  "book-171": {
+    bookId: "book-171", title: "1984", author: "George Orwell",
+    sources: [{ name: "Píšem.cz – 1984: rozbor díla k maturitě", url: "https://www.pisem.cz/1984-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Antiutopický (dystopický) román s prvky politické satiry", literaryForm: "Próza", timeAndSpace: "Londýn v Oceánii, jedné ze tří totalitních velmocí; děj je zasazen do fiktivního roku 1984." },
+    themeAndMotifs: { theme: "Varování před totalitní mocí, manipulací pravdy, dohledem nad jednotlivcem a ovládáním myšlení.", motifs: "Velký bratr, všudypřítomný dohled, newspeak, doublethink, přepisování minulosti, zákaz soukromí." },
+    composition: { structure: "Tři části a dodatek o principech newspeaku.", timeline: "Převážně chronologický děj sledující několik měsíců Winstonova života.", dramaticStructure: "Winston nejprve tajně odporuje režimu, naváže vztah s Julií, uvěří falešné naději na odboj a nakonec je zatčen a zlomen." },
+    characters: [
+      { name: "Winston Smith", role: "Hlavní postava", description: "Úředník Ministerstva pravdy, který si uchovává vzpomínky na minulost a touží po svobodném myšlení." },
+      { name: "Julia", role: "Winstonova partnerka", description: "Mladá žena, která se proti režimu bouří spíše osobním a praktickým odporem než politickými úvahami." },
+      { name: "O'Brien", role: "Vysoce postavený člen Strany", description: "Inteligentní a manipulativní představitel režimu, který předstírá spojenectví s Winstonem." },
+      { name: "Velký bratr", role: "Symbol a tvář Strany", description: "Všudypřítomná autorita zobrazovaná na plakátech a obrazovkách; zosobňuje moc režimu." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vyprávění je omezeno převážně na Winstonovu perspektivu.", languageCharacteristics: "Věcný, úsporný jazyk, politická terminologie, ironie a významotvorné slogany." },
+    summary: "Winston Smith žije ve státě, kde Strana kontroluje informace, minulost i soukromý život obyvatel. Pracuje na přepisování starých zpráv, ale tajně pochybuje o oficiální pravdě a začne si vést deník. Naváže vztah s Julií a oba se pokusí najít cestu k odboji. Důvěra v O'Briena se ukáže jako past. Winston je zatčen, podroben nátlaku a nakonec přijme myšlení Strany i jejího vůdce.",
+    historicalContext: { literaryContext: "Poválečná literatura reagující na zkušenost nacistické a stalinské totality; antiutopie navazuje mimo jiné na Huxleyho a Zamjatina.", authorContext: "George Orwell (1903–1950), britský spisovatel a novinář. Román Nineteen Eighty-Four vyšel roku 1949." }
+  },
+
+  // book-172: Farma zvířat (George Orwell)
+  "book-172": {
+    bookId: "book-172", title: "Farma zvířat", author: "George Orwell",
+    sources: [{ name: "Píšem.cz – Farma zvířat: rozbor díla k maturitě", url: "https://www.pisem.cz/farma-zvirat-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Alegorická novela, bajka a politická satira", literaryForm: "Próza", timeAndSpace: "Panská farma v Anglii, neurčená doba 20. století." },
+    themeAndMotifs: { theme: "Zneužití revoluce a ideálů rovnosti; proměna osvobozeneckého hnutí v novou diktaturu.", motifs: "Vzpoura, přikázání, propaganda, práce, moc, strach, zrada a přepisování pravidel." },
+    composition: { structure: "Deset kapitol.", timeline: "Chronologický děj zachycující vývoj farmy od vzpoury po upevnění vlády prasat.", dramaticStructure: "Zvířata vyženou majitele, vytvoří vlastní řád, ale prasata postupně soustředí moc a začnou napodobovat lidi." },
+    characters: [
+      { name: "Napoleon", role: "Prase, které převezme vedení", description: "Mocichtivý a bezohledný vůdce, který si pomocí psů a propagandy upevní diktaturu." },
+      { name: "Kuliš", role: "Prase a Napoleonův soupeř", description: "Schopný organizátor, který prosazuje plány na modernizaci farmy; Napoleon ho vyžene." },
+      { name: "Pištík", role: "Mluvčí prasat", description: "Manipuluje ostatními zvířaty a ospravedlňuje změny pravidel." },
+      { name: "Boxer", role: "Pracovitý kůň", description: "Oddaný a obětavý pracovník, jehož důvěřivost a síla jsou zneužity." },
+      { name: "Starý Major", role: "Prase, které inspiruje vzpouru", description: "Představí zvířatům myšlenku osvobození od lidského útlaku." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vypravěč sleduje zvířata a dění na farmě.", languageCharacteristics: "Jednoduchý, srozumitelný jazyk, alegorie, ironie, opakování hesel a bajkové prvky." },
+    summary: "Zvířata na farmě se vzbouří proti majiteli Jonesovi a převezmou hospodářství. Zpočátku chtějí vytvořit spravedlivé společenství, v němž budou mít všichni stejná práva. Prasata však postupně získávají výhody a moc, přepisují původní pravidla a ostatní zvířata ovládají propagandou a strachem. Napoleon se stane diktátorem a prasata se začnou podobat lidem, proti nimž se původně vzbouřila.",
+    historicalContext: { literaryContext: "Politická alegorie a antiutopie 20. století; novela kritizuje stalinskou diktaturu a zradu revolučních ideálů.", authorContext: "George Orwell (1903–1950), britský spisovatel. Farma zvířat vyšla roku 1945." }
+  },
+
+  // book-123: Pýcha a předsudek (Jane Austenová)
+  "book-123": {
+    bookId: "book-123", title: "Pýcha a předsudek", author: "Jane Austenová",
+    sources: [{ name: "Píšem.cz – Pýcha a předsudek: rozbor díla k maturitě", url: "https://www.pisem.cz/pycha-a-predsudek-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Společenský román s milostnou zápletkou", literaryForm: "Próza", timeAndSpace: "Anglický venkov a menší města na přelomu 18. a 19. století." },
+    themeAndMotifs: { theme: "Překonávání předsudků a společenských očekávání při hledání lásky a osobního štěstí.", motifs: "Manželství, společenské postavení, peníze, rodina, pověst, první dojem a ironie." },
+    composition: { structure: "Tři díly, celkem 61 kapitol.", timeline: "Převážně chronologický děj v průběhu přibližně jednoho roku.", dramaticStructure: "Elizabeth si vytvoří mylný názor na Darcyho, postupně poznává okolnosti jeho jednání a oba hrdinové přehodnocují své postoje." },
+    characters: [
+      { name: "Elizabeth Bennetová", role: "Hlavní postava", description: "Bystrá, vtipná a samostatná mladá žena, která si cení osobní integrity, ale někdy příliš důvěřuje prvnímu dojmu." },
+      { name: "Fitzwilliam Darcy", role: "Elizabethin protějšek", description: "Bohatý a zpočátku odměřený muž, jehož hrdost zakrývá citlivost a schopnost změny." },
+      { name: "Jane Bennetová", role: "Elizabethina starší sestra", description: "Laskavá a důvěřivá dívka, která se zamiluje do Bingleyho." },
+      { name: "Paní Bennetová", role: "Matka pěti dcer", description: "Soustředí se na výhodné sňatky svých dcer a často jedná zbrkle." },
+      { name: "Pan Collins", role: "Příbuzný rodiny", description: "Samolibý duchovní, který se uchází o Elizabeth a později si vezme Charlotte." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s častým zaměřením na Elizabeth a s prvky volné nepřímé řeči.", languageCharacteristics: "Ironie, společenský humor, kultivované dialogy a přesná charakterizace postav." },
+    summary: "Rodina Bennetových má pět dcer a jejich budoucnost závisí na výhodných sňatcích. Elizabeth se setkává s bohatým panem Darcym, kterého kvůli jeho chování považuje za pyšného a nesympatického. Zároveň uvěří pomluvám o jeho minulosti. Postupně však poznává skutečné okolnosti a uvědomuje si vlastní předsudky. Darcy zase překonává svou společenskou pýchu. Po řadě nedorozumění a rodinných komplikací se oba rozhodnou pro společnou budoucnost.",
+    historicalContext: { literaryContext: "Anglický román přelomu 18. a 19. století; Austenová předjímá realistické zobrazování společnosti a mezilidských vztahů.", authorContext: "Jane Austenová (1775–1817), anglická prozaička. Pýcha a předsudek vyšla anonymně roku 1813." }
+  },
+
+  // book-157: Petr a Lucie (Romain Rolland)
+  "book-157": {
+    bookId: "book-157", title: "Petr a Lucie", author: "Romain Rolland",
+    sources: [{ name: "Píšem.cz – Petr a Lucie: rozbor díla k maturitě", url: "https://www.pisem.cz/petr-a-lucie-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Protiválečná novela s milostným námětem", literaryForm: "Próza", timeAndSpace: "Paříž během první světové války, od ledna do března 1918." },
+    themeAndMotifs: { theme: "Láska a touha po obyčejném životě v kontrastu s válkou a ohrožením.", motifs: "Nálet, metro, setkání, umění, jaro, kostel, Velký pátek a smrt." },
+    composition: { structure: "Krátké kapitoly, souvislý děj.", timeline: "Chronologický děj od seznámení hlavních postav po tragický závěr.", dramaticStructure: "Petr a Lucie se náhodně setkají během náletu, zamilují se a vytvářejí si vlastní svět, který přeruší válečná katastrofa." },
+    characters: [
+      { name: "Petr Aubier", role: "Hlavní postava", description: "Mladík z měšťanské rodiny, který se v době války snaží najít smysl života a únik od očekávání okolí." },
+      { name: "Lucie", role: "Hlavní postava", description: "Chudá mladá žena, která se živí kopírováním obrazů a Petrovi přináší blízkost a naději." },
+      { name: "Filip", role: "Petrův starší bratr", description: "Voják, jehož zkušenosti a postoje představují jiný pohled na válku." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vypravěč sleduje především Petra a Lucii.", languageCharacteristics: "Citový, lyrizovaný jazyk, kontrast intimních okamžiků s válečnou realitou a symbolické motivy." },
+    summary: "Petr a Lucie se náhodně setkají v pařížském metru během leteckého náletu. Postupně se do sebe zamilují a během několika týdnů si vytvářejí prostor, v němž mohou zapomenout na válku. Petr pochází z měšťanské rodiny a Lucie žije skromně, jejich vztah však překonává společenské rozdíly. Na Velký pátek roku 1918 se spolu uchýlí do kostela Saint-Gervais, který zasáhne granát. Jejich krátké štěstí končí tragicky.",
+    historicalContext: { literaryContext: "Protiválečná literatura reagující na první světovou válku; důraz na lidskost, pacifismus a utrpení civilistů.", authorContext: "Romain Rolland (1866–1944), francouzský spisovatel a nositel Nobelovy ceny za literaturu za rok 1915. Novela vyšla roku 1920." }
+  },
+
+  // book-119: Bídníci (Victor Hugo)
+  "book-119": {
+    bookId: "book-119", title: "Bídníci", author: "Victor Hugo",
+    sources: [{ name: "Píšem.cz – Bídníci: rozbor díla k maturitě", url: "https://www.pisem.cz/bidnici-rozbor-dila/" }],
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Sociální, historický a filozofický román", literaryForm: "Próza", timeAndSpace: "Francie, zejména město Paříž; první polovina 19. století." },
+    themeAndMotifs: { theme: "Sociální nespravedlnost, chudoba, milosrdenství, vykoupení a možnost člověka změnit svůj život.", motifs: "Galeje, chudoba, zákon a spravedlnost, revoluce, oběť, rodina a soucit." },
+    composition: { structure: "Pět dílů rozdělených do knih a kapitol.", timeline: "Převážně chronologický děj s rozsáhlými odbočkami a historickými úvahami.", dramaticStructure: "Jean Valjean se po propuštění z galejí snaží začít nový život; pronásleduje ho Javert, zatímco Valjean chrání Cosettu a hledá možnost dobra." },
+    characters: [
+      { name: "Jean Valjean", role: "Hlavní postava", description: "Bývalý galejník, který se díky biskupovu milosrdenství promění v člověka usilujícího o dobro." },
+      { name: "Javert", role: "Policejní inspektor", description: "Neústupně věří v zákon a nedokáže přijmout, že se člověk může skutečně změnit." },
+      { name: "Fantina", role: "Cosettina matka", description: "Chudá žena, která se snaží zajistit dceři lepší život a doplácí na společenské předsudky." },
+      { name: "Cosetta", role: "Fantinina dcera", description: "Dívka, kterou Valjean zachrání od krutého zacházení a vychová ji." },
+      { name: "Marius", role: "Mladý revolucionář", description: "Zamiluje se do Cosetty a účastní se pařížského povstání." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Vševědoucí vypravěč v er-formě, který děj doplňuje komentáři a historickými úvahami.", languageCharacteristics: "Romantická obraznost, kontrasty, patos, rozsáhlé popisy a společenská kritika." },
+    summary: "Jean Valjean je po letech propuštěn z galejí, ale společnost ho kvůli minulosti odmítá. Setkání s biskupem, který mu projeví nečekané milosrdenství, ho přiměje změnit život. Pod novou identitou se stane váženým mužem, přesto ho pronásleduje inspektor Javert. Valjean se ujme malé Cosetty, dcery Fantiny, a snaží se jí zajistit bezpečí. V Paříži se jejich osudy protnou s mladými revolucionáři a Mariem. Román ukazuje, jak chudoba, předsudky a nespravedlivé zákony ovlivňují lidské životy.",
+    historicalContext: { literaryContext: "Francouzský romantismus 19. století s výraznými realistickými a sociálně kritickými prvky.", authorContext: "Victor Hugo (1802–1885), francouzský básník, dramatik a prozaik. Bídníci vyšli roku 1862." }
+  }
+
 }
 
 // Pomocná funkce pro získání rozboru podle ID knihy
