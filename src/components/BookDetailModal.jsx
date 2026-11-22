@@ -153,7 +153,7 @@ export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleM
               <span>Přesné umístění v knihovně</span>
             </div>
             <p className="text-base font-extrabold text-emerald-950">
-              {book.location}
+              {book.location || 'Umístění nebylo zadáno'}
             </p>
             <p className="text-xs text-emerald-700 mt-1">
               {book.categoryName}
@@ -167,11 +167,18 @@ export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleM
               <div>
                 <span className="text-[11px] text-slate-500 block">Čárkový kód / ISBN</span>
                 <span className="font-mono font-bold text-sm text-slate-800 tracking-wider">
-                  {book.barcode}
+                  {book.barcode || 'Neuvedeno'}
                 </span>
               </div>
             </div>
           </div>
+
+          {(book.publicationYear || book.publisher) && (
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 grid grid-cols-2 gap-3">
+              {book.publicationYear && <div><span className="text-[11px] text-slate-500 block">Rok vydání</span><span className="text-sm font-semibold text-slate-800">{book.publicationYear}</span></div>}
+              {book.publisher && <div><span className="text-[11px] text-slate-500 block">Nakladatelství</span><span className="text-sm font-semibold text-slate-800">{book.publisher}</span></div>}
+            </div>
+          )}
 
           {/* Description */}
           <div className="space-y-1">
