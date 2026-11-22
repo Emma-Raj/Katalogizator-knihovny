@@ -1,7 +1,8 @@
 import React from 'react'
 import { BookOpen, QrCode, GraduationCap, BookmarkCheck, PlusCircle } from 'lucide-react'
 
-export default function Navigation({ activeTab, setActiveTab, borrowedCount }) {
+export default function Navigation({ activeTab, setActiveTab, borrowedCount, selectedProfile }) {
+  const isMaturant = selectedProfile === 'maturita'
   const navItems = [
     { id: 'catalog', label: 'Katalog', icon: BookOpen },
     { id: 'maturita', label: 'Maturita', icon: GraduationCap },
@@ -11,7 +12,7 @@ export default function Navigation({ activeTab, setActiveTab, borrowedCount }) {
   ]
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 pb-safe shadow-lg">
+    <nav className={`fixed bottom-0 left-0 right-0 ${isMaturant ? "bg-emerald-50 border-emerald-200" : "bg-amber-50 border-amber-200"} border-t z-40 pb-safe shadow-lg`}>
       <div className="max-w-md mx-auto flex justify-around items-center h-16 px-1">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -27,13 +28,13 @@ export default function Navigation({ activeTab, setActiveTab, borrowedCount }) {
                 <div
                   className={`w-13 h-13 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95 ${
                     isActive
-                      ? 'bg-amber-500 text-slate-900 ring-4 ring-amber-200'
-                      : 'bg-emerald-600 text-white hover:bg-emerald-700'
+                      ? 'bg-amber-400 text-slate-950 ring-4 ring-amber-200'
+                      : isMaturant ? 'bg-emerald-700 text-white hover:bg-emerald-800' : 'bg-amber-800 text-white hover:bg-amber-900'
                   }`}
                 >
                   <Icon className="w-6 h-6" />
                 </div>
-                <span className={`text-[11px] font-medium mt-1 ${isActive ? 'text-amber-600 font-bold' : 'text-slate-600'}`}>
+                <span className={`text-[11px] font-medium mt-1 ${isActive ? (isMaturant ? 'text-emerald-800 font-bold' : 'text-amber-900 font-bold') : 'text-slate-600'}`}>
                   {item.label}
                 </span>
               </button>
@@ -45,7 +46,7 @@ export default function Navigation({ activeTab, setActiveTab, borrowedCount }) {
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={`flex-1 flex flex-col items-center justify-center py-1.5 px-1 relative transition-colors ${
-                isActive ? 'text-emerald-700 font-semibold' : 'text-slate-500 hover:text-slate-800'
+                isActive ? (isMaturant ? 'text-emerald-800 font-semibold' : 'text-amber-900 font-semibold') : 'text-slate-500 hover:text-slate-800'
               }`}
             >
               <div className="relative">
