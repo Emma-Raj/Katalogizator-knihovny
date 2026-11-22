@@ -190,9 +190,9 @@ export default function App() {
   }
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${selectedProfile === "maturita" ? "bg-emerald-50" : "bg-stone-100"}`}>
+    <div data-profile={selectedProfile} className={`min-h-screen flex flex-col font-sans ${selectedProfile === "maturita" ? "bg-violet-50" : "bg-green-50"}`}>
       {/* Mobile container wrapper */}
-      <div className="w-full max-w-md mx-auto min-h-screen bg-slate-50 flex flex-col shadow-xl relative border-x border-slate-200">
+      <div className={`w-full max-w-md mx-auto min-h-screen ${selectedProfile === "maturita" ? "bg-violet-50" : "bg-green-50"} flex flex-col shadow-xl relative border-x border-slate-200`}>
 
         {/* Header */}
         <Header activeTab={activeTab} setActiveTab={setActiveTab} selectedProfile={selectedProfile} />
