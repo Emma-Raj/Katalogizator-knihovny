@@ -97,3 +97,19 @@ body {
 [data-profile="ctenar"] [class*="to-amber-"],
 [data-profile="ctenar"] [class*="to-blue-"],
 [data-profile="ctenar"] [class*="to-teal-"] { --tw-gradient-to: #14532d var(--tw-gradient-to-position) !important; }
+
+
+/* Explicit contrast for literary-period accordion headers in both profiles. */
+[data-profile="maturita"] .maturita-period-header {
+  background: linear-gradient(90deg, #7e22ce, #581c87) !important;
+  color: #ffffff !important;
+}
+[data-profile="ctenar"] .maturita-period-header {
+  background: linear-gradient(90deg, #15803d, #14532d) !important;
+  color: #ffffff !important;
+}
+.maturita-period-header h3,
+.maturita-period-header span,
+.maturita-period-header svg {
+  color: #ffffff !important;
+}
