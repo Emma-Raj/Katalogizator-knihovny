@@ -961,7 +961,166 @@ export const maturitaRozbory = {
     narratorAndStyle: { narrativeMethod: "Er-forma s proměnlivým zaměřením na různé postavy.", languageCharacteristics: "Ironie, černý humor, paradox, opakování, absurdní dialogy a groteskní nadsázka." },
     summary: "Kapitán Yossarian slouží jako bombardovací pilot během druhé světové války. Chce se vrátit domů, ale velitelé stále zvyšují počet bojových letů, které musí posádka absolvovat. Vojenské nařízení zvané Hlava XXII vytváří logickou past: kdo žádá o vyřazení z letů kvůli šílenství, dokazuje tím, že je dostatečně příčetný, aby létal dál. Yossarian sleduje, jak jeho přátelé mizí a umírají, a postupně odmítá přijmout pravidla systému. Nakonec se rozhodne hledat vlastní cestu ven.",
     historicalContext: { literaryContext: "Americká poválečná próza 60. let, protiválečná literatura, absurdní a groteskní satira.", authorContext: "Joseph Heller (1923–1999), americký spisovatel a veterán druhé světové války. Hlava XXII vyšla roku 1961." }
-  }
+  },
+
+  // book-101: Epos o Gilgamešovi
+  "book-101": {
+    bookId: "book-101", title: "Epos o Gilgamešovi", author: "Neznámý autor",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Hrdinský epos", literaryForm: "Veršovaná epika", timeAndSpace: "Starověká Mezopotámie, město Uruk a krajina za jeho hranicemi; děj vychází ze sumerských a akkadských tradic." },
+    themeAndMotifs: { theme: "Přátelství, smrtelnost člověka a hledání smyslu života.", motifs: "Přátelství, cesta, hrdinství, smrt, nesmrtelnost, bohové, příroda a sláva." },
+    composition: { structure: "Soubor epizod propojených postavou Gilgameše; dochovaná podoba má dvanáct tabulek.", timeline: "Převážně chronologický sled dobrodružství a putování.", dramaticStructure: "Gilgameš se po setkání s Enkiduem promění, po přítelově smrti hledá nesmrtelnost a nakonec přijímá lidské hranice." },
+    characters: [
+      { name: "Gilgameš", role: "Hlavní postava", description: "Král Uruku, zčásti božského původu; zpočátku pyšný a bezohledný, postupně poznává cenu přátelství a vlastní smrtelnost." },
+      { name: "Enkidu", role: "Gilgamešův přítel", description: "Divoký muž spojený s přírodou, který se stane Gilgamešovým blízkým druhem." },
+      { name: "Utnapištim", role: "Nositel tajemství nesmrtelnosti", description: "Přežil potopu a vysvětlí Gilgamešovi, že věčný život není běžnému člověku určen." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vševědoucí epické vyprávění.", languageCharacteristics: "Vznešený styl, opakování, paralelismy, symbolika a mytologické obrazy." },
+    summary: "Král Gilgameš vládne Uruku tvrdou rukou, dokud bohové nestvoří Enkidua, který se mu postaví. Z protivníků se stanou přátelé a společně prožijí řadu hrdinských dobrodružství. Po Enkiduově smrti Gilgameše přemůže strach z vlastní smrti a vydá se hledat tajemství věčného života. Utnapištim mu ukáže, že nesmrtelnost člověku nepřísluší. Gilgameš se vrací do Uruku s poznáním, že smysl lidského života spočívá také v činech a díle, které po sobě člověk zanechá.",
+    historicalContext: { literaryContext: "Mezopotámská literatura starověku; jeden z nejstarších dochovaných rozsáhlých literárních textů.", authorContext: "Autorství je anonymní. Epos vznikal postupně z ústních a písemných tradic; jeho akkadská podoba se ustálila ve 2. tisíciletí př. n. l." }
+  },
+  // book-102: Král Oidipus
+  "book-102": {
+    bookId: "book-102", title: "Král Oidipus", author: "Sofoklés",
+    generalInfo: { literaryKind: "Drama", literaryGenre: "Antická tragédie", literaryForm: "Veršované drama", timeAndSpace: "Théby v mytické době; děj se odehrává během krátkého časového úseku před královským palácem." },
+    themeAndMotifs: { theme: "Střet lidské vůle s osudem, vina, poznání pravdy a odpovědnost.", motifs: "Věštba, slepota a prozření, mor, rodová kletba, pravda, vina a osud." },
+    composition: { structure: "Prolog, párodos, střídání epizod a stasimonů, závěrečná exodos.", timeline: "Jednotný čas a místo; děj respektuje antické zásady jednoty.", dramaticStructure: "Oidipus pátrá po příčině moru, postupně odhaluje vlastní původ a poznává, že naplnil dávnou věštbu." },
+    characters: [
+      { name: "Oidipus", role: "Hlavní postava", description: "Thébský král, který chce zachránit město a neústupně pátrá po pravdě, i když se týká jeho samotného." },
+      { name: "Iokasté", role: "Královna", description: "Oidipova manželka a matka; snaží se zastavit pátrání, protože tuší jeho výsledek." },
+      { name: "Kreón", role: "Oidipův příbuzný", description: "Přináší věštbu a později se ujímá vlády v Thébách." },
+      { name: "Teiresiás", role: "Slepý věštec", description: "Zná pravdu o Oidipově původu, ale zpočátku ji odmítá vyslovit." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Přímá dramatická řeč, dialogy a sborové zpěvy.", languageCharacteristics: "Vznešený jazyk, metafory, ironie a tragické napětí založené na postupném odhalování pravdy." },
+    summary: "Théby sužuje mor a král Oidipus chce zjistit, jak město očistit. Věštba oznámí, že příčinou neštěstí je nepotrestaná vražda bývalého krále Láia. Oidipus zahájí pátrání, při němž se dostává do konfliktu s věštcem Teiresiem i Kreontem. Svědectví postupně odhalí, že Oidipus je synem Láia a Iokasté, svého současného manželského páru, a že kdysi nevědomky zabil vlastního otce. Iokasté poznání neunese a Oidipus musí čelit následkům naplněné věštby.",
+    historicalContext: { literaryContext: "Antické řecké drama klasického období; tragédie vychází z thébského mytologického okruhu.", authorContext: "Sofoklés (asi 496–406 př. n. l.) byl athénský dramatik, autor tragédií Antigona a Král Oidipus." }
+  },
+  // book-105: Dekameron
+  "book-105": {
+    bookId: "book-105", title: "Dekameron", author: "Giovanni Boccaccio",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Soubor novel", literaryForm: "Próza", timeAndSpace: "Florencie a venkovské sídlo poblíž města; doba morové epidemie roku 1348." },
+    themeAndMotifs: { theme: "Lidské jednání, láska, důvtip a schopnost obstát v proměnlivém světě.", motifs: "Mor, útěk z města, vyprávění, láska, peníze, chytrost, štěstí a společenské rozdíly." },
+    composition: { structure: "Rámcová kompozice: deset vypravěčů si během deseti dnů vypráví sto novel.", timeline: "Rámcový děj je časově souvislý, jednotlivé novely se odehrávají v různých dobách.", dramaticStructure: "Skupina mladých lidí opustí zasaženou Florencii a vyplňuje čas vyprávěním příběhů na každý den stanoveného tématu." },
+    characters: [
+      { name: "Pampinea", role: "Vedoucí skupiny", description: "Jedna ze sedmi žen, která navrhne odchod z Florencie a pomáhá udržovat řád skupiny." },
+      { name: "Fiammetta", role: "Vypravěčka", description: "Jedna z deseti mladých lidí, kteří se střídají ve vyprávění novel." },
+      { name: "Dioneo", role: "Vypravěč", description: "Vypravěč známý osobitým humorem a příběhy, které se často vymykají dennímu tématu." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Rámcové vyprávění; jednotlivé novely mají vlastní vypravěče.", languageCharacteristics: "Pestrý realistický jazyk, humor, ironie, satira a živé dialogy." },
+    summary: "Během morové epidemie ve Florencii odchází sedm mladých žen a tři muži na venkovské sídlo. Aby překonali čas a udrželi si dobrou náladu, každý den si vyprávějí příběhy. Během deseti dnů zazní sto novel o lásce, chytrosti, nevěře, štěstí, lidské hlouposti i pokrytectví. Jednotlivé příběhy zachycují různé vrstvy společnosti a často ukazují, že důvtip a schopnost jednat mohou člověku pomoci překonat nepříznivé okolnosti.",
+    historicalContext: { literaryContext: "Italská renesanční literatura; důraz na člověka, pozemský život, individualitu a realistické pozorování společnosti.", authorContext: "Giovanni Boccaccio (1313–1375), italský humanista a spisovatel. Dekameron vznikal přibližně v letech 1349–1353." }
+  },
+  // book-110: Důmyslný rytíř don Quijote de la Mancha
+  "book-110": {
+    bookId: "book-110", title: "Důmyslný rytíř don Quijote de la Mancha", author: "Miguel de Cervantes y Saavedra",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Parodický a dobrodružný román", literaryForm: "Próza", timeAndSpace: "Španělsko, především Kastilie a Mancha; přelom 16. a 17. století." },
+    themeAndMotifs: { theme: "Střet ideálů s realitou, síla představivosti a hranice mezi snem a skutečností.", motifs: "Rytířství, čest, spravedlnost, větrné mlýny, cesta, přátelství a svoboda." },
+    composition: { structure: "Dvě části vydané v letech 1605 a 1615; epizodická stavba.", timeline: "Převážně chronologické putování doplněné vloženými příběhy.", dramaticStructure: "Chudý šlechtic se považuje za potulného rytíře, vydává se do světa a jeho představy opakovaně narážejí na realitu." },
+    characters: [
+      { name: "Don Quijote", role: "Hlavní postava", description: "Alonso Quijano, který pod vlivem rytířských románů přijme totožnost potulného rytíře a chce napravovat křivdy." },
+      { name: "Sancho Panza", role: "Zbrojnoš", description: "Praktický venkovan, který doprovází Quijota a často představuje zdravý rozum." },
+      { name: "Dulcinea z Tobosa", role: "Idealizovaná dáma", description: "Žena, kterou si Quijote ve své představivosti zvolí za vznešenou dámu svého srdce." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s hrou na nalezený rukopis a fiktivního kronikáře.", languageCharacteristics: "Parodie rytířských románů, humor, ironie, kontrast vznešeného a všedního jazyka." },
+    summary: "Chudý venkovský šlechtic Alonso Quijano čte tolik rytířských románů, až začne věřit, že je potulným rytířem. Přijme jméno Don Quijote, vybere si koně Rocinanta, dámu Dulcineu a vydá se napravovat bezpráví. Doprovází ho Sancho Panza, který doufá v odměnu v podobě vlastního ostrova. Quijote si běžné jevy vykládá jako rytířská dobrodružství, například větrné mlýny považuje za obry. Jeho výpravy jsou komické, ale zároveň ukazují napětí mezi idealismem a skutečností. Nakonec se vrací domů, vzdává se rytířských představ a umírá jako Alonso Quijano.",
+    historicalContext: { literaryContext: "Španělská literatura zlatého věku; dílo bývá označováno za jeden z prvních moderních románů a parodii rytířské literatury.", authorContext: "Miguel de Cervantes (1547–1616), španělský spisovatel. První část vyšla roku 1605, druhá roku 1615." }
+  },
+  // book-115: Robinson Crusoe
+  "book-115": {
+    bookId: "book-115", title: "Robinson Crusoe", author: "Daniel Defoe",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Dobrodružný a realistický román", literaryForm: "Próza", timeAndSpace: "Neobydlený ostrov v Karibiku a Anglie; přibližně 17. století." },
+    themeAndMotifs: { theme: "Lidská vytrvalost, práce, víra a schopnost přizpůsobit se neznámým podmínkám.", motifs: "Samota, ostrov, ztroskotání, práce, deník, příroda, víra a přátelství." },
+    composition: { structure: "Chronologické vyprávění s deníkovými a vzpomínkovými pasážemi.", timeline: "Dlouhé časové období; Robinson stráví na ostrově 28 let.", dramaticStructure: "Po ztroskotání si Robinson postupně vytváří zázemí, učí se žít v izolaci a po setkání s Pátkem získává společníka." },
+    characters: [
+      { name: "Robinson Crusoe", role: "Hlavní postava a vypravěč", description: "Anglický námořník, který se po ztroskotání učí samostatnosti a praktickému řešení problémů." },
+      { name: "Pátek", role: "Robinsonův společník", description: "Muž, kterého Robinson zachrání a pojmenuje podle dne jejich setkání; stává se jeho přítelem a pomocníkem." },
+      { name: "Kapitán portugalské lodi", role: "Vedlejší postava", description: "Pomůže Robinsonovi vrátit se po letech do civilizace." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma, autobiograficky působící vyprávění doplněné deníkem.", languageCharacteristics: "Věcný, popisný a realistický styl, důraz na pracovní postupy, každodennost a vnitřní úvahy." },
+    summary: "Robinson Crusoe se navzdory přání rodiny vydává na moře. Po ztroskotání lodi zůstane jako jediný přeživší na opuštěném ostrově. Zachrání vybavení z vraku, vybuduje si obydlí, obstarává potravu a vede si záznamy o každodenním životě. Postupně se vyrovnává se samotou a obrací se k víře. Po letech objeví stopy dalších lidí a zachrání zajatce, kterému dá jméno Pátek. Společně se nakonec dočkají možnosti opustit ostrov a Robinson se vrací do Anglie.",
+    historicalContext: { literaryContext: "Anglický osvícenský román 18. století; důraz na individualismus, empirickou zkušenost a praktický rozum.", authorContext: "Daniel Defoe (asi 1660–1731), anglický spisovatel a novinář. Robinson Crusoe vyšel roku 1719." }
+  },
+  // book-116: Gulliverovy cesty
+  "book-116": {
+    bookId: "book-116", title: "Gulliverovy cesty", author: "Jonathan Swift",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Satirický a fantastický cestopisný román", literaryForm: "Próza", timeAndSpace: "Fantastické země Liliput, Brobdingnag, Laputa a země Hujhnhnmů; neurčená současnost autora." },
+    themeAndMotifs: { theme: "Kritika lidské pýchy, politiky, vědy a společenských poměrů.", motifs: "Cestování, velikost a malost, moc, válka, rozum, věda, lidská povaha a společenské zvyklosti." },
+    composition: { structure: "Čtyři části, každá popisuje jednu významnou cestu.", timeline: "Chronologické vyprávění jednotlivých cest.", dramaticStructure: "Gulliver postupně poznává odlišné společnosti, jejichž zvyklosti nastavují zrcadlo evropské civilizaci." },
+    characters: [
+      { name: "Lemuel Gulliver", role: "Hlavní postava a vypravěč", description: "Lodní lékař a cestovatel, který pozoruje neobvyklé společnosti a srovnává je s Evropou." },
+      { name: "Liliputský císař", role: "Vládce Liliputu", description: "Představuje malichernost politické moci a sporů." },
+      { name: "Král Brobdingnagu", role: "Vládce země obrů", description: "Získává od Gullivera zprávy o Evropě a kriticky hodnotí její politiku." },
+      { name: "Hujhnhnmové", role: "Rozumní koně", description: "Společnost řízená rozumem, která kontrastuje s lidskou chamtivostí a násilím." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Ich-forma, stylizovaná jako věrohodný cestovní deník.", languageCharacteristics: "Ironie, satira, nadsázka, alegorie a kontrast fantastického světa s reálnou společností." },
+    summary: "Lodní lékař Lemuel Gulliver podniká čtyři cesty do neznámých zemí. V Liliputu se setká s drobnými lidmi, jejichž politické spory působí malicherně. V zemi obrů naopak pozná vlastní bezvýznamnost a dozví se, jak kriticky může vypadat evropská společnost zvenčí. Na létajícím ostrově Laputa se setká s učenci odtrženými od praktického života. Poslední cesta ho zavede mezi rozumné koně Hujhnhnmy a tvory podobné lidem, kteří představují jejich opak. Dílo prostřednictvím fantastických cest satiricky kritizuje lidské nedostatky.",
+    historicalContext: { literaryContext: "Anglická osvícenská literatura; satira na politiku, vědu, válku a lidskou povahu.", authorContext: "Jonathan Swift (1667–1745), anglo-irský satirik a duchovní. Gulliverovy cesty vyšly roku 1726." }
+  },
+  // book-122: Oliver Twist
+  "book-122": {
+    bookId: "book-122", title: "Oliver Twist", author: "Charles Dickens",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Realistický sociální román", literaryForm: "Próza", timeAndSpace: "Anglie, především Londýn; první polovina 19. století." },
+    themeAndMotifs: { theme: "Chudoba, sociální nespravedlnost, dětská zranitelnost a možnost lidské dobroty.", motifs: "Sirotčinec, chudobinec, zločin, hlad, rodinný původ, soucit a spravedlnost." },
+    composition: { structure: "Kapitoly s postupně odhalovanými souvislostmi a tajemstvím Oliverova původu.", timeline: "Převážně chronologický děj.", dramaticStructure: "Oliver opouští chudobinec, dostává se do londýnského podsvětí a postupně se odhaluje jeho skutečný původ." },
+    characters: [
+      { name: "Oliver Twist", role: "Hlavní postava", description: "Sirotek, který navzdory nepřízni okolí zůstává citlivý a touží po bezpečném domově." },
+      { name: "Fagin", role: "Vůdce zlodějské skupiny", description: "Využívá děti k drobným krádežím a představuje zneužívání chudých." },
+      { name: "Bill Sikes", role: "Zločinec", description: "Násilnický muž z londýnského podsvětí." },
+      { name: "Nancy", role: "Mladá žena z Faginovy skupiny", description: "Navzdory vlastnímu prostředí projeví soucit a pokusí se Oliverovi pomoci." },
+      { name: "Pan Brownlow", role: "Oliverův dobrodinec", description: "Poskytne Oliverovi ochranu a pomáhá odhalit jeho minulost." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vševědoucí vypravěč.", languageCharacteristics: "Realistické popisy, ironie, sociální kritika, kontrast prostředí a výrazná charakterizace postav." },
+    summary: "Oliver Twist vyrůstá v chudobinci, kde je s ním zacházeno krutě. Po útěku do Londýna se dostane do skupiny dětí vedených Faginem, který je učí krást. Oliver se však nechce stát zločincem a několikrát se ocitne v nebezpečí. Pomoc najde u pana Brownlowa a dalších lidí, kteří v něm rozpoznají nevinné dítě. Postupně vyjde najevo jeho rodinný původ i okolnosti, které ho připravily o bezpečný domov. Román kritizuje tehdejší zacházení s chudými a sirotky.",
+    historicalContext: { literaryContext: "Anglický kritický realismus viktoriánského období; sociální román upozorňující na chudobu a nedostatky sociální péče.", authorContext: "Charles Dickens (1812–1870), anglický romanopisec. Oliver Twist vycházel na pokračování v letech 1837–1839." }
+  },
+  // book-121: Evžen Oněgin
+  "book-121": {
+    bookId: "book-121", title: "Evžen Oněgin", author: "Alexandr Sergejevič Puškin",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Veršovaný román", literaryForm: "Poezie; čtrnáctiveršová oněginská strofa", timeAndSpace: "Petrohrad, ruský venkov a Moskva; první desetiletí 19. století." },
+    themeAndMotifs: { theme: "Promarněná láska, nuda vyšší společnosti a konflikt mezi city a společenskými konvencemi.", motifs: "Láska, odmítnutí, souboj, přátelství, venkov, společenská nuda a promarněná příležitost." },
+    composition: { structure: "Osm kapitol ve veršovaných oněginských strofách.", timeline: "Převážně chronologický děj s autorskými odbočkami.", dramaticStructure: "Oněgin odmítne Taťáninu lásku, později se role obrátí, ale Taťána už nemůže jeho cit opětovat." },
+    characters: [
+      { name: "Evžen Oněgin", role: "Hlavní postava", description: "Mladý petrohradský šlechtic znuděný společenským životem, který nedokáže včas rozpoznat hodnotu opravdového citu." },
+      { name: "Taťána Larinová", role: "Hlavní ženská postava", description: "Citlivá a přemýšlivá dívka, která se Oněginovi otevřeně vyzná z lásky." },
+      { name: "Vladimír Lenskij", role: "Oněginův přítel", description: "Mladý romantický básník, jehož vztah k Olze a konflikt s Oněginem vedou k tragédii." },
+      { name: "Olga Larinová", role: "Taťánina sestra", description: "Živá a bezstarostná dívka, Lenského snoubenka." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s výraznou přítomností a komentáři autora-vypravěče.", languageCharacteristics: "Jazyková lehkost, ironie, lyrické pasáže, společenské postřehy a propracovaná veršová forma." },
+    summary: "Evžen Oněgin přijíždí na venkov, kde se spřátelí s básníkem Lenským. Seznámí se také s Taťánou, která se do něj zamiluje a napíše mu dopis. Oněgin její city odmítne. Později na plese záměrně věnuje pozornost Olze, což vyvolá konflikt s Lenským a skončí soubojem, v němž Lenskij zahyne. Po letech se Oněgin setká s Taťánou jako s vdanou ženou a zamiluje se do ní. Taťána jeho city opětuje, ale rozhodne se zůstat věrná svému manželství.",
+    historicalContext: { literaryContext: "Ruský romantismus s realistickými prvky; obraz takzvaného zbytečného člověka a ruské společnosti.", authorContext: "Alexandr Sergejevič Puškin (1799–1837), ruský básník a prozaik. Román vycházel postupně v letech 1825–1832." }
+  },
+  // book-141: Babička
+  "book-141": {
+    bookId: "book-141", title: "Babička", author: "Božena Němcová",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Idylická próza s realistickými a vzpomínkovými prvky", literaryForm: "Próza", timeAndSpace: "Ratibořické údolí a Staré bělidlo; venkov v první polovině 19. století." },
+    themeAndMotifs: { theme: "Rodinné vztahy, tradice, lidská moudrost, soucit a soužití člověka s přírodou.", motifs: "Domov, rodina, venkovský život, lidové zvyky, roční období, smrt a vzpomínky." },
+    composition: { structure: "Čtyři díly s řadou samostatnějších epizod propojených postavou babičky.", timeline: "Převážně chronologický průběh jednoho roku.", dramaticStructure: "Babička přijíždí na Staré bělidlo, stává se přirozeným středem rodiny i širšího okolí a její přítomnost propojuje jednotlivé příběhy." },
+    characters: [
+      { name: "Babička", role: "Hlavní postava", description: "Laskavá, pracovitá a moudrá žena, která předává zkušenosti, tradice a úctu k lidem." },
+      { name: "Barunka", role: "Dětská postava", description: "Dívka, jejímž pohledem jsou zachyceny mnohé vzpomínkové epizody." },
+      { name: "Paní kněžna", role: "Šlechtična", description: "Váží si babičky a představuje svět odlišný od venkovského prostředí." },
+      { name: "Viktorka", role: "Tragická postava", description: "Žena poznamenaná nešťastným osudem, jejíž příběh tvoří kontrast k idylickému obrazu venkova." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma, vyprávění s autobiografickými a vzpomínkovými prvky.", languageCharacteristics: "Spisovný jazyk s prvky lidové mluvy, popisy přírody, folklorní motivy a idealizace venkova." },
+    summary: "Na Staré bělidlo přijíždí babička, aby pomáhala rodině své dcery. Brzy se stane přirozenou autoritou a oporou nejen pro vnoučata, ale i pro lidi z okolí. Vypráví příběhy, připomíná lidové tradice, účastní se svátků a pomáhá těm, kdo se ocitli v těžké situaci. Vedle každodenního života rodiny se objevují i osudy dalších postav, například tragický příběh Viktorky. Děj vrcholí babiččiným stářím a smrtí; její moudrost a laskavost však zůstávají v paměti blízkých.",
+    historicalContext: { literaryContext: "Česká literatura národního obrození; próza spojuje realistické pozorování, idealizaci venkova a zájem o lidovou kulturu.", authorContext: "Božena Němcová (asi 1820–1862), česká spisovatelka a sběratelka lidové slovesnosti. Babička vyšla roku 1855." }
+  },
+  // book-164: Vražda v Orient expresu
+  "book-164": {
+    bookId: "book-164", title: "Vražda v Orient expresu", author: "Agatha Christie",
+    generalInfo: { literaryKind: "Epika", literaryGenre: "Detektivní román", literaryForm: "Próza", timeAndSpace: "Luxusní vlak Orient expres, který uvízne ve sněhové závěji na Balkáně; 30. léta 20. století." },
+    themeAndMotifs: { theme: "Hledání pravdy, spravedlnost a rozdíl mezi zákonem a morálním úsudkem.", motifs: "Vražda, vlak, sníh, uzavřený prostor, falešné stopy, výslechy a kolektivní vina." },
+    composition: { structure: "Tři části: fakta, svědectví a Hercule Poirot přemýšlí.", timeline: "Chronologické vyšetřování s retrospektivními výpověďmi cestujících.", dramaticStructure: "Po vraždě ve vlaku Poirot vyslýchá cestující, porovnává jejich výpovědi a odhalí společné tajemství." },
+    characters: [
+      { name: "Hercule Poirot", role: "Detektiv", description: "Belgický detektiv, který využívá logiku, pozorování a psychologii." },
+      { name: "Samuel Ratchett", role: "Oběť", description: "Americký cestující, jehož minulost souvisí se starým zločinem." },
+      { name: "M. Bouc", role: "Ředitel železniční společnosti", description: "Poirotův známý, který se podílí na vyšetřování." },
+      { name: "Doktor Constantine", role: "Lékař", description: "Pomáhá určit okolnosti smrti a spolupracuje s Poirotem." }
+    ],
+    narratorAndStyle: { narrativeMethod: "Er-forma s převážným zaměřením na Poirotovo vyšetřování.", languageCharacteristics: "Přehledná detektivní stavba, dialogy, indicie, falešné stopy a logické odhalení." },
+    summary: "Hercule Poirot cestuje Orient expresem, který kvůli sněhu uvízne na trati. Během noci je ve svém kupé zavražděn americký cestující Ratchett. Protože vlak nemůže pokračovat a vrah musí být mezi cestujícími, Poirot zahájí vyšetřování. Vyslýchá jednotlivé pasažéry, porovnává jejich výpovědi a nachází souvislosti s dávným únosem dítěte Armstrongových. Nakonec odhalí, že do činu byli zapojeni lidé, kteří měli k oběti osobní důvod. Závěr otevírá otázku, zda může být morální spravedlnost v rozporu se zákonem.",
+    historicalContext: { literaryContext: "Klasická detektivní literatura zlatého věku; román typu uzavřeného okruhu podezřelých.", authorContext: "Agatha Christie (1890–1976), britská autorka detektivních románů a her. Vražda v Orient expresu vyšla roku 1934." }
+  },
+
 }
 
 // Pomocná funkce pro získání rozboru podle ID knihy
