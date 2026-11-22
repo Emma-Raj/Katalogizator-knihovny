@@ -167,6 +167,13 @@ export default function App() {
     }
   }
 
+  // Handle editing or clearing a book's optional location note
+  const handleUpdateLocation = (bookId, location) => {
+    setBooks((prev) => prev.map((b) => b.id === bookId ? { ...b, location } : b))
+    setSelectedBook((prev) => prev && prev.id === bookId ? { ...prev, location } : prev)
+    showToast(location ? 'Poznámka k umístění byla uložena.' : 'Poznámka k umístění byla smazána.', 'success')
+  }
+
   // Handle Add Book
   const handleAddBook = (newBook) => {
     setBooks((prev) => [newBook, ...prev])
@@ -183,12 +190,12 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col font-sans">
+    <div className={`min-h-screen flex flex-col font-sans ${selectedProfile === "maturita" ? "bg-emerald-50" : "bg-stone-100"}`}>
       {/* Mobile container wrapper */}
       <div className="w-full max-w-md mx-auto min-h-screen bg-slate-50 flex flex-col shadow-xl relative border-x border-slate-200">
 
         {/* Header */}
-        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Header activeTab={activeTab} setActiveTab={setActiveTab} selectedProfile={selectedProfile} />
 
         {/* Toast alert */}
         {toastMessage && (
@@ -213,7 +220,7 @@ export default function App() {
         {/* Main Content Body */}
         <main className="flex-1 overflow-y-auto">
           {activeTab === 'catalog' && (
-            <BookList books={books} onSelectBook={(b) => setSelectedBook(b)} />
+            <BookList books={books} onSelectBook={(b) => setSelectedBook(b)} selectedProfile={selectedProfile} />
           )}
 
           {activeTab === 'maturita' && (
@@ -252,6 +259,7 @@ export default function App() {
             onClose={() => setSelectedBook(null)}
             onBorrowBook={handleBorrowBook}
             onToggleMaturita={handleToggleMaturita}
+            onUpdateLocation={handleUpdateLocation}
             onOpenRozbor={(b) => setRozborBook(b)}
           />
         )}
@@ -269,6 +277,7 @@ export default function App() {
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           borrowedCount={borrowedCount}
+          selectedProfile={selectedProfile}
         />
       </div>
     </div>

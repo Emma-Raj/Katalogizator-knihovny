@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { Search, Filter, BookOpen, GraduationCap, MapPin, CheckCircle, XCircle, ChevronRight, X } from 'lucide-react'
 
-export default function BookList({ books, onSelectBook }) {
+export default function BookList({ books, onSelectBook, selectedProfile }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [maturitaOnly, setMaturitaOnly] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -146,7 +146,7 @@ export default function BookList({ books, onSelectBook }) {
             <div
               key={book.id}
               onClick={() => onSelectBook(book)}
-              className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 hover:border-emerald-300 transition-all cursor-pointer active:scale-[0.99] flex items-center justify-between gap-3 group"
+              className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 hover:border-slate-300 transition-all cursor-pointer active:scale-[0.99] flex items-center justify-between gap-3 group"
             >
               <div className="space-y-1.5 min-w-0 flex-1">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -161,15 +161,15 @@ export default function BookList({ books, onSelectBook }) {
                   </span>
                 </div>
 
-                <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-emerald-700 transition-colors">
+                <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-slate-800 transition-colors">
                   {book.title}
                 </h3>
                 <p className="text-xs font-medium text-slate-600 truncate">{book.author}</p>
 
                 {/* Location Badge */}
-                <div className="flex items-center gap-1 text-[11px] text-emerald-800 bg-emerald-50/80 px-2 py-1 rounded-lg border border-emerald-100 w-fit">
-                  <MapPin className="w-3 h-3 text-emerald-600 shrink-0" />
-                  <span className="font-semibold truncate">{book.location || 'Umístění neuvedeno'}</span>
+                <div className="flex items-center gap-1 text-[11px] text-slate-600 bg-slate-50 px-2 py-1 rounded-lg border border-slate-200 w-fit">
+                  <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                  <span className="font-semibold truncate">{book.location || 'Bez poznámky'}</span>
                 </div>
               </div>
 
@@ -186,7 +186,7 @@ export default function BookList({ books, onSelectBook }) {
                   </span>
                 )}
 
-                <div className="p-1.5 text-slate-300 group-hover:text-emerald-600 transition-colors">
+                <div className="p-1.5 text-slate-300 group-hover:text-slate-600 transition-colors">
                   <ChevronRight className="w-5 h-5" />
                 </div>
               </div>
