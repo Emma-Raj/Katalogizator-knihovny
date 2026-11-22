@@ -8,6 +8,7 @@ import BorrowedList from './components/BorrowedList'
 import AddBookModal from './components/AddBookModal'
 import BookDetailModal from './components/BookDetailModal'
 import MaturitaDetailModal from './components/MaturitaDetailModal'
+import WelcomeScreen from './components/WelcomeScreen'
 import { initialBooks } from './data/books'
 import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
@@ -40,6 +41,7 @@ export default function App() {
   })
 
   const [activeTab, setActiveTab] = useState('catalog')
+  const [selectedProfile, setSelectedProfile] = useState(null)
   const [selectedBook, setSelectedBook] = useState(null)
   const [rozborBook, setRozborBook] = useState(null)
   const [toastMessage, setToastMessage] = useState(null)
@@ -172,6 +174,13 @@ export default function App() {
   }
 
   const borrowedCount = books.filter((b) => b.isBorrowed).length
+
+  if (!selectedProfile) {
+    return <WelcomeScreen onSelectProfile={(profile) => {
+      setSelectedProfile(profile)
+      setActiveTab(profile === 'maturita' ? 'maturita' : 'catalog')
+    }} />
+  }
 
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col font-sans">
