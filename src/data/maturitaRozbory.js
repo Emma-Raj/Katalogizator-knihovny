@@ -368,6 +368,231 @@ export const maturitaRozbory = {
       authorContext: "Karel Čapek (1890–1938) – drama napsal v roce 1937 v bezprostřední předzvěsti německé agrese a ohrožení Československa fašismem."
     }
   }
+  // book-137: Máj (Karel Hynek Mácha)
+  "book-137": {
+    bookId: "book-137",
+    title: "Máj",
+    author: "Karel Hynek Mácha",
+    sources: [
+      {
+        name: "Rozbor-díla.cz – Máj: rozbor díla k maturitě",
+        url: "https://rozbor-dila.cz/maj-rozbor-dila-k-maturite-8/"
+      }
+    ],
+    generalInfo: {
+      literaryKind: "Lyricko-epika",
+      literaryGenre: "Romantická lyricko-epická báseň",
+      literaryForm: "Veršovaná poezie",
+      timeAndSpace: "Okolí jezera a hradu, česká krajina; děj se odehrává během několika dnů na začátku května."
+    },
+    themeAndMotifs: {
+      theme: "Konflikt člověka se společností a osudem, vina, trest, láska, smrt a pomíjivost života.",
+      motifs: "Májová příroda, jezero, měsíc, láska, žal, vězení, poprava, poutník a návrat."
+    },
+    composition: {
+      structure: "Dedikace, předzpěv, čtyři zpěvy a dvě intermezza.",
+      timeline: "Příběh Viléma je vyprávěn převážně chronologicky; rámec doplňuje závěrečný návrat poutníka.",
+      dramaticStructure: "První zpěv představuje májovou krajinu a zprávu o Vilémově popravě; druhý zachycuje vězně před popravou; třetí líčí popravu a doznívající přírodní krásu; čtvrtý přináší návrat poutníka na místo tragédie."
+    },
+    characters: [
+      {
+        name: "Vilém",
+        role: "Hlavní postava, vězeň odsouzený k popravě",
+        description: "Romantický hrdina, který se bouří proti společnosti a prožívá zoufalství nad vlastním osudem. Zjišťuje, že zabil svůdce své milé, aniž věděl, že jde o jeho otce."
+      },
+      {
+        name: "Jarmila",
+        role: "Vilémova milá",
+        description: "Mladá žena, která čeká na Viléma u jezera. Po zprávě o jeho činu a odsouzení se utopí."
+      },
+      {
+        name: "Poutník",
+        role: "Postava závěrečného rámce",
+        description: "Vrací se po letech na místo tragédie a v závěru se ztotožňuje s básníkem."
+      }
+    ],
+    narratorAndStyle: {
+      narrativeMethod: "Střídá se lyrický subjekt s epickým vyprávěním v er-formě; v závěru vystupuje poutník.",
+      languageCharacteristics: "Bohatá obraznost, metafory, personifikace, kontrasty, zvukomalba, inverze a výrazná práce s rytmem a rýmem."
+    },
+    summary: "Jarmila čeká u jezera na Viléma, který se má vrátit. Dozví se však, že Vilém byl uvězněn a čeká ho poprava za vraždu muže, jenž svedl jeho milou. Vilém před smrtí vzpomíná na svůj život a přemýšlí o vině, osudu a pomíjivosti. Při popravě se ukáže, že zavražděný byl jeho otec, kterého Vilém nepoznal. Jarmila se utopí a po letech přichází na místo tragédie poutník, který si uvědomuje vlastní blízkost k Vilémovu osudu.",
+    historicalContext: {
+      literaryContext: "Český romantismus v době národního obrození. Dílo se odklání od vlastenecky a výchovně zaměřené literatury a klade důraz na individualitu, city, přírodu a tragického hrdinu.",
+      authorContext: "Karel Hynek Mácha (1810–1836) byl básník a prozaik, nejvýraznější představitel českého romantismu. Máj vyšel roku 1836."
+    }
+  },
+  // book-128: Zločin a trest (Fjodor Michajlovič Dostojevskij)
+  "book-128": {
+    bookId: "book-128",
+    title: "Zločin a trest",
+    author: "Fjodor Michajlovič Dostojevskij",
+    sources: [
+      {
+        name: "Rozbor-díla.cz – Zločin a trest: rozbor díla k maturitě",
+        url: "https://rozbor-dila.cz/zlocin-a-trest-rozbor-dila-k-maturite-3/"
+      }
+    ],
+    generalInfo: {
+      literaryKind: "Epika",
+      literaryGenre: "Psychologický a sociálně realistický román s kriminální zápletkou",
+      literaryForm: "Próza",
+      timeAndSpace: "Petrohrad ve druhé polovině 19. století; závěr se odehrává na Sibiři."
+    },
+    themeAndMotifs: {
+      theme: "Vina a svědomí, hranice mezi dobrem a zlem, morální oprávněnost zločinu, chudoba a možnost vnitřní proměny člověka.",
+      motifs: "Vražda, výčitky svědomí, nemoc, chudoba, alkoholismus, oběť, víra, trest a pokání."
+    },
+    composition: {
+      structure: "Šest částí a epilog.",
+      timeline: "Převážně chronologický děj, soustředěný na několik týdnů; epilog časově posouvá příběh na Sibiř.",
+      dramaticStructure: "Děj sleduje přípravu a spáchání zločinu, následnou psychickou krizi hlavního hrdiny, vyšetřování, přiznání a jeho život ve vyhnanství."
+    },
+    characters: [
+      {
+        name: "Rodion Romanovič Raskolnikov",
+        role: "Hlavní postava, bývalý student práv",
+        description: "Chudý, hrdý a rozporuplný mladík, který si vytvoří teorii o výjimečných lidech stojících nad běžnými morálními pravidly. Po činu ho pronásledují pochybnosti a svědomí."
+      },
+      {
+        name: "Soňa Marmeladovová",
+        role: "Dcera Marmeladova, Raskolnikovova blízká osoba",
+        description: "Soucitná, obětavá a hluboce věřící dívka, která se snaží pomáhat své rodině a vede Raskolnikova k přiznání."
+      },
+      {
+        name: "Porfirij Petrovič",
+        role: "Vyšetřovatel",
+        description: "Všímavý a psychologicky zdatný vyšetřovatel, který se snaží odhalit Raskolnikovovu vinu především rozhovory a pozorováním."
+      },
+      {
+        name: "Dmitrij Razumichin",
+        role: "Raskolnikovův přítel",
+        description: "Upřímný, energický a obětavý mladík, který hlavnímu hrdinovi pomáhá v době nemoci."
+      }
+    ],
+    narratorAndStyle: {
+      narrativeMethod: "Vyprávění v er-formě s častým pronikáním do myšlenek a vnitřních monologů hlavní postavy.",
+      languageCharacteristics: "Spisovný jazyk, dialogy, vnitřní monology, psychologické popisy a kontrasty mezi chudobou, morálkou a společenským postavením."
+    },
+    summary: "Bývalý student Raskolnikov žije v bídě a vytvoří si teorii, podle níž mají výjimeční lidé právo překračovat běžná morální pravidla. Rozhodne se zavraždit lichvářku, ale při činu zabije také její sestru. Přestože se snaží svůj čin rozumově ospravedlnit, propadá nemoci, úzkosti a výčitkám. Vyšetřovatel Porfirij postupně odhaluje rozpory v jeho chování. Raskolnikov se svěří Soně, která ho povzbuzuje k přiznání. Nakonec se udá a je poslán na nucené práce na Sibiř, kde začíná jeho postupná vnitřní proměna.",
+    historicalContext: {
+      literaryContext: "Ruský realismus druhé poloviny 19. století, zejména psychologický román a kritické zobrazení sociálních poměrů.",
+      authorContext: "Fjodor Michajlovič Dostojevskij (1821–1881) byl ruský prozaik. Jeho tvorbu ovlivnily osobní zkušenosti s vězením a vyhnanstvím. Zločin a trest vycházel na pokračování v letech 1866–1867."
+    }
+  },
+  // book-162: Proměna (Franz Kafka)
+  "book-162": {
+    bookId: "book-162",
+    title: "Proměna",
+    author: "Franz Kafka",
+    sources: [
+      {
+        name: "Rozbor-díla.cz – Proměna: rozbor díla k maturitě",
+        url: "https://rozbor-dila.cz/promena-rozbor-dila-k-maturite-5/"
+      }
+    ],
+    generalInfo: {
+      literaryKind: "Epika",
+      literaryGenre: "Novela s absurdními a fantastickými prvky",
+      literaryForm: "Próza",
+      timeAndSpace: "Převážně byt rodiny Samsových, neurčené město; počátek 20. století."
+    },
+    themeAndMotifs: {
+      theme: "Odcizení člověka, osamělost, ztráta identity a podmíněnost rodinných vztahů užitečností a schopností vydělávat.",
+      motifs: "Proměna, hmyz, rodina, práce, pokoj, jablko, zavřené dveře a izolace."
+    },
+    composition: {
+      structure: "Tři části.",
+      timeline: "Chronologické vyprávění v krátkém časovém úseku, od Gregorova probuzení až po jeho smrt a následnou reakci rodiny."
+    },
+    characters: [
+      {
+        name: "Řehoř Samsa",
+        role: "Hlavní postava, obchodní cestující",
+        description: "Zodpovědný a obětavý člověk, který živí rodinu. Po proměně v obrovský hmyz ztrácí možnost pracovat i běžně komunikovat s okolím."
+      },
+      {
+        name: "Markéta Samsová",
+        role: "Řehořova sestra",
+        description: "Zpočátku se o bratra stará, postupně se však od něj citově vzdaluje a začne jeho přítomnost vnímat jako zátěž."
+      },
+      {
+        name: "Otec Samsa",
+        role: "Řehořův otec",
+        description: "Po synově proměně znovu přebírá autoritu v rodině; jeho jednání je tvrdé a odmítavé."
+      },
+      {
+        name: "Matka Samsová",
+        role: "Řehořova matka",
+        description: "Má k synovi citový vztah, ale zároveň se nedokáže vyrovnat s jeho novou podobou."
+      }
+    ],
+    narratorAndStyle: {
+      narrativeMethod: "Er-forma, vypravěč sleduje dění převážně z perspektivy Řehoře.",
+      languageCharacteristics: "Věcný, střízlivý a přesný jazyk kontrastuje s absurdní fantastickou událostí; významnou roli mají symboly a opakující se motivy."
+    },
+    summary: "Obchodní cestující Řehoř Samsa se jednoho rána probudí proměněný v obrovský hmyz. Zpočátku se více obává zmeškaného vlaku a reakce zaměstnavatele než samotné proměny. Rodina ho postupně uzavře v pokoji a jeho sestra se o něj nejprve stará. Jak se však Řehořův stav stává dlouhodobou zátěží, blízcí ho stále více odmítají. Po zranění a rostoucí izolaci Řehoř umírá. Rodina následně pocítí úlevu a začne plánovat novou budoucnost.",
+    historicalContext: {
+      literaryContext: "Moderní literatura počátku 20. století, často spojovaná s expresionismem a existenciálními tématy. Kafkova próza zachycuje absurditu, odcizení a bezmoc jednotlivce.",
+      authorContext: "Franz Kafka (1883–1924) byl pražský německy píšící spisovatel. Proměna vyšla roku 1915."
+    }
+  },
+  // book-133: Obraz Doriana Graye (Oscar Wilde)
+  "book-133": {
+    bookId: "book-133",
+    title: "Obraz Doriana Graye",
+    author: "Oscar Wilde",
+    sources: [
+      {
+        name: "Rozbor-díla.cz – Obraz Doriana Graye: rozbor díla k maturitě",
+        url: "https://rozbor-dila.cz/obraz-doriana-graye-rozbor-dila-k-maturite/"
+      }
+    ],
+    generalInfo: {
+      literaryKind: "Epika",
+      literaryGenre: "Román s filozofickými a fantastickými prvky",
+      literaryForm: "Próza",
+      timeAndSpace: "Londýn na konci 19. století, zejména prostředí vyšší společnosti a Dorianův dům."
+    },
+    themeAndMotifs: {
+      theme: "Konflikt krásy a morálky, vliv požitkářství, odpovědnost za vlastní činy a rozklad osobnosti.",
+      motifs: "Portrét, mládí, krása, svědomí, pokušení, dvojí život, umění a čas."
+    },
+    composition: {
+      structure: "Předmluva a dvacet kapitol.",
+      timeline: "Převážně chronologický vývoj, který sleduje proměnu Dorianovy osobnosti v průběhu let."
+    },
+    characters: [
+      {
+        name: "Dorian Gray",
+        role: "Hlavní postava",
+        description: "Mimořádně krásný mladík, který si přeje zachovat věčné mládí. Zatímco jeho vzhled zůstává stejný, portrét zachycuje důsledky jeho činů a morálního úpadku."
+      },
+      {
+        name: "Basil Hallward",
+        role: "Malíř portrétu",
+        description: "Citlivý a talentovaný umělec, který v Dorianovi vidí ideál krásy a nevinnosti."
+      },
+      {
+        name: "Lord Henry Wotton",
+        role: "Dorianův přítel a vlivný společník",
+        description: "Ironický aristokrat, který Dorianovi předkládá názory zdůrazňující krásu, mládí a osobní požitek."
+      },
+      {
+        name: "Sibyla Vaneová",
+        role: "Mladá herečka",
+        description: "Dorianova láska, jejíž osud je ovlivněn jeho povrchním hodnocením a krutým odmítnutím."
+      }
+    ],
+    narratorAndStyle: {
+      narrativeMethod: "Er-forma, převážně chronologické vyprávění s rozsáhlými dialogy.",
+      languageCharacteristics: "Spisovný a kultivovaný jazyk, ironie, aforismy, kontrasty a symbolika portrétu."
+    },
+    summary: "Malíř Basil vytvoří portrét mladého Doriana Graye. Pod vlivem lorda Henryho si Dorian začne přát, aby zůstal navždy mladý a aby stárnul místo něj obraz. Jeho přání se naplní: Dorianův vzhled se nemění, zatímco portrét postupně odráží jeho sobeckost a špatné činy. Dorian vede dvojí život, odmítá odpovědnost a snaží se skrýt obraz před ostatními. Když se nakonec pokusí zničit portrét, zničí sám sebe; obraz se vrátí do původní krásy a Dorianovo tělo nese známky jeho skutečného věku a života.",
+    historicalContext: {
+      literaryContext: "Literatura konce 19. století, estetismus a dekadence. Dílo zároveň zkoumá napětí mezi společenskou morálkou, krásou a osobní svobodou.",
+      authorContext: "Oscar Wilde (1854–1900) byl irský dramatik, prozaik a básník, známý vytříbeným stylem, paradoxem a ironií. Román vyšel knižně roku 1891."
+    }
+  },
 }
 
 // Pomocná funkce pro získání rozboru podle ID knihy
