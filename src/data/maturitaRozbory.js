@@ -592,8 +592,7 @@ export const maturitaRozbory = {
       literaryContext: "Literatura konce 19. století, estetismus a dekadence. Dílo zároveň zkoumá napětí mezi společenskou morálkou, krásou a osobní svobodou.",
       authorContext: "Oscar Wilde (1854–1900) byl irský dramatik, prozaik a básník, známý vytříbeným stylem, paradoxem a ironií. Román vyšel knižně roku 1891."
     }
-  },,
-
+  },
   // book-106: Hamlet (William Shakespeare)
   "book-106": {
     bookId: "book-106", title: "Hamlet", author: "William Shakespeare",
