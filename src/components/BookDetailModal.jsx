@@ -173,6 +173,13 @@ export default function BookDetailModal({ book, onClose, onBorrowBook, onToggleM
             </div>
           </div>
 
+          {(book.publicationYear || book.publisher) && (
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 grid grid-cols-2 gap-3">
+              {book.publicationYear && <div><span className="text-[11px] text-slate-500 block">Rok vydání</span><span className="text-sm font-semibold text-slate-800">{book.publicationYear}</span></div>}
+              {book.publisher && <div><span className="text-[11px] text-slate-500 block">Nakladatelství</span><span className="text-sm font-semibold text-slate-800">{book.publisher}</span></div>}
+            </div>
+          )}
+
           {/* Description */}
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1">
