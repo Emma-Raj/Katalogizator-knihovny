@@ -6,29 +6,28 @@ body {
 }
 
 
+
 /* Jednotné barevné motivy obou prostředí aplikace */
 [data-profile="maturita"] [class*="bg-emerald-"],
 [data-profile="maturita"] [class*="bg-amber-"],
 [data-profile="maturita"] [class*="bg-blue-"],
-[data-profile="maturita"] [class*="bg-teal-"] {
-  background-color: #f3e8ff !important;
-}
+[data-profile="maturita"] [class*="bg-teal-"] { background-color: #f3e8ff !important; }
 [data-profile="maturita"] [class*="bg-emerald-600"],
 [data-profile="maturita"] [class*="bg-emerald-700"],
 [data-profile="maturita"] [class*="bg-emerald-800"],
+[data-profile="maturita"] [class*="bg-emerald-900"],
 [data-profile="maturita"] [class*="bg-amber-600"],
 [data-profile="maturita"] [class*="bg-amber-700"],
 [data-profile="maturita"] [class*="bg-amber-800"],
+[data-profile="maturita"] [class*="bg-amber-900"],
 [data-profile="maturita"] [class*="bg-blue-600"],
 [data-profile="maturita"] [class*="bg-blue-700"],
+[data-profile="maturita"] [class*="bg-blue-800"],
+[data-profile="maturita"] [class*="bg-blue-900"],
 [data-profile="maturita"] [class*="bg-teal-600"],
 [data-profile="maturita"] [class*="bg-teal-700"],
-[data-profile="maturita"] [class*="bg-emerald-900"],
-[data-profile="maturita"] [class*="bg-amber-900"],
-[data-profile="maturita"] [class*="bg-blue-900"],
-[data-profile="maturita"] [class*="bg-teal-900"] {
-  background-color: #6b21a8 !important;
-}
+[data-profile="maturita"] [class*="bg-teal-800"],
+[data-profile="maturita"] [class*="bg-teal-900"] { background-color: #6b21a8 !important; }
 [data-profile="maturita"] [class*="text-emerald-"],
 [data-profile="maturita"] [class*="text-amber-"],
 [data-profile="maturita"] [class*="text-blue-"],
@@ -57,17 +56,19 @@ body {
 [data-profile="ctenar"] [class*="bg-emerald-600"],
 [data-profile="ctenar"] [class*="bg-emerald-700"],
 [data-profile="ctenar"] [class*="bg-emerald-800"],
+[data-profile="ctenar"] [class*="bg-emerald-900"],
 [data-profile="ctenar"] [class*="bg-amber-600"],
 [data-profile="ctenar"] [class*="bg-amber-700"],
 [data-profile="ctenar"] [class*="bg-amber-800"],
+[data-profile="ctenar"] [class*="bg-amber-900"],
 [data-profile="ctenar"] [class*="bg-blue-600"],
 [data-profile="ctenar"] [class*="bg-blue-700"],
+[data-profile="ctenar"] [class*="bg-blue-800"],
+[data-profile="ctenar"] [class*="bg-blue-900"],
 [data-profile="ctenar"] [class*="bg-teal-600"],
 [data-profile="ctenar"] [class*="bg-teal-700"],
-[data-profile="maturita"] [class*="bg-emerald-900"],
-[data-profile="maturita"] [class*="bg-amber-900"],
-[data-profile="maturita"] [class*="bg-blue-900"],
-[data-profile="maturita"] [class*="bg-teal-900"] { background-color: #166534 !important; }
+[data-profile="ctenar"] [class*="bg-teal-800"],
+[data-profile="ctenar"] [class*="bg-teal-900"] { background-color: #166534 !important; }
 [data-profile="ctenar"] [class*="text-emerald-"],
 [data-profile="ctenar"] [class*="text-amber-"],
 [data-profile="ctenar"] [class*="text-blue-"],
