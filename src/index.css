@@ -32,6 +32,10 @@ body {
 [data-profile="maturita"] [class*="text-amber-"],
 [data-profile="maturita"] [class*="text-blue-"],
 [data-profile="maturita"] [class*="text-teal-"] { color: #6b21a8 !important; }
+[data-profile="maturita"] [class*="text-emerald-200"],
+[data-profile="maturita"] [class*="text-amber-200"],
+[data-profile="maturita"] [class*="text-blue-200"],
+[data-profile="maturita"] [class*="text-teal-200"] { color: #e9d5ff !important; }
 [data-profile="maturita"] [class*="border-emerald-"],
 [data-profile="maturita"] [class*="border-amber-"],
 [data-profile="maturita"] [class*="border-blue-"],
@@ -73,6 +77,10 @@ body {
 [data-profile="ctenar"] [class*="text-amber-"],
 [data-profile="ctenar"] [class*="text-blue-"],
 [data-profile="ctenar"] [class*="text-teal-"] { color: #166534 !important; }
+[data-profile="ctenar"] [class*="text-emerald-200"],
+[data-profile="ctenar"] [class*="text-amber-200"],
+[data-profile="ctenar"] [class*="text-blue-200"],
+[data-profile="ctenar"] [class*="text-teal-200"] { color: #bbf7d0 !important; }
 [data-profile="ctenar"] [class*="border-emerald-"],
 [data-profile="ctenar"] [class*="border-amber-"],
 [data-profile="ctenar"] [class*="border-blue-"],
